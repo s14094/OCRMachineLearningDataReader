@@ -1,0 +1,22 @@
+.custom-th{
+  font-size: 10px;
+  font-family: monospace;
+}
+
+.custom-td{
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.table-row {
+  height: 25px !important;
+}
+
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+tr.table-row:hover {
+  background: #777;
+}

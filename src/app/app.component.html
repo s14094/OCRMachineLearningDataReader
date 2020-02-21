@@ -1,20 +1,149 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="example-container" style="width: 100%; height: 100%;">
 
+  <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100%; height: 100%;">
+
+    <ng-container matColumnDef="fieldValue">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 200px;"> fieldValue</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.fieldValue}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lang">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> lang</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.lang == 'EnglishUnitedStates'">
+            Eng
+        </ng-container>
+        <ng-container *ngIf="!element.lang == 'EnglishUnitedStates'">
+          {{element.lang}}
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lineBaseline">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> baseline</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>{{element.lineBaseline}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lineLeft">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> line ←</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineLeft}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lineRight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> line →</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineRight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lineBottom">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> line ↓</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineBottom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lineTop">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> line ↑</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineTop}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="parAlign">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> align</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parAlign}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="parStartIndent">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> pStart</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parStartIndent}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="parLineSpacing">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> pSpace</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parLineSpacing}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cellWidth">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> cell ↔</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.blockType == 'Table'">
+          {{element.cellWidth}}
+        </ng-container>
+        <ng-container *ngIf="!element.blockType == 'Table'">
+          -
+        </ng-container></td>
+    </ng-container>
+
+    <ng-container matColumnDef="cellHeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> cell ↕</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.blockType == 'Table'">
+          {{element.cellHeight}}
+        </ng-container>
+        <ng-container *ngIf="!element.blockType == 'Table'">
+          -
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockType">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> typ</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockName">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> name</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockLeft">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ←</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockLeft}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockRight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> block →</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockRight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockTop">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↑</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockTop}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockBottom">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↓</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockBottom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockCenterCoords">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> bCent</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockCenterCoords}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockWidth">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↔</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockWidth}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockHeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↕</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockHeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pageWidth">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> par ↔</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageWidth}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pageHeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> par ↕</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageHeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pageResolution">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> pRes</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageResolution}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
+  </table>
+
+</div>
