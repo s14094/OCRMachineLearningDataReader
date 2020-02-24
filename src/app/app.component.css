@@ -8,6 +8,12 @@
   font-family: monospace;
 }
 
+.custom-td-odd{
+  font-size: 11px;
+  font-family: monospace;
+  color: green;
+}
+
 .table-row {
   height: 25px !important;
 }

@@ -23,4 +23,6 @@ export class AppModel {
   fieldValue: string;
   cellWidth: number;
   cellHeight: number;
+  blockId: number;
+  probabilityInvoiceNumber: number;
 }
