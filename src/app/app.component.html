@@ -150,15 +150,28 @@
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageHeight}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="probabilityInvoiceNumber">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> % invoice</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probabilityInvoiceNumber}} </td>
+    <ng-container matColumnDef="pageResolution">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> pRes </th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageResolution}} </td>
     </ng-container>
 
 
-    <ng-container matColumnDef="pageResolution">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> pRes</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageResolution}} </td>
+    <ng-container matColumnDef="probabilityInvoiceNumber">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> % invoice </th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 0">
+          <span style="color: white">{{element.probabilityInvoiceNumber}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 1">
+          <span style="color: yellow">{{element.probabilityInvoiceNumber}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 2">
+          <span style="color: orange">{{element.probabilityInvoiceNumber}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 3">
+          <span style="color: red">{{element.probabilityInvoiceNumber}}</span>
+        </ng-container>
+      </td>
     </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

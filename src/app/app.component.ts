@@ -28,6 +28,21 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.appService.getData().subscribe(result => {
       this.listModel = result;
+      var highestValue = 0;
+      for (const model of this.listModel) {
+        if (model.probabilityInvoiceNumber > highestValue) {
+          highestValue = model.probabilityInvoiceNumber;
+        }
+      }
+      for (let model of this.listModel) {
+        if (model.probabilityInvoiceNumber === highestValue) {
+          model.probabilityInvoiceNumberColor = 3;
+        } else if ((model.probabilityInvoiceNumber > (highestValue - 5)) && (model.probabilityInvoiceNumber < highestValue )) {
+          model.probabilityInvoiceNumberColor = 2;
+        } else if ((model.probabilityInvoiceNumber > (highestValue - 10)) && (model.probabilityInvoiceNumber < (highestValue - 5))) {
+          model.probabilityInvoiceNumberColor = 1;
+        }
+      }
       console.log(this.listModel);
       this.dataSource = new MatTableDataSource(this.listModel);
     });

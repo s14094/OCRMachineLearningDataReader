@@ -25,4 +25,5 @@ export class AppModel {
   cellHeight: number;
   blockId: number;
   probabilityInvoiceNumber: number;
+  probabilityInvoiceNumberColor = 0;
 }
