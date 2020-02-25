@@ -170,16 +170,16 @@
       <th *matHeaderCellDef class="custom-th" mat-header-cell> % invoice </th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
         <ng-container *ngIf="element.probabilityInvoiceNumberColor == 0">
-          <span style="color: white">{{element.probabilityInvoiceNumber}}</span>
+          <span style="color: #b2b2b2">{{element.probabilityInvoiceNumber}}</span>
         </ng-container>
         <ng-container *ngIf="element.probabilityInvoiceNumberColor == 1">
-          <span style="color: yellow">{{element.probabilityInvoiceNumber}}</span>
+          <span style="color: #ffff99">{{element.probabilityInvoiceNumber}}</span>
         </ng-container>
         <ng-container *ngIf="element.probabilityInvoiceNumberColor == 2">
-          <span style="color: orange">{{element.probabilityInvoiceNumber}}</span>
+          <span style="color: #9eff8d">{{element.probabilityInvoiceNumber}}</span>
         </ng-container>
         <ng-container *ngIf="element.probabilityInvoiceNumberColor == 3">
-          <span style="color: red">{{element.probabilityInvoiceNumber}}</span>
+          <span style="color: #00ff11">{{element.probabilityInvoiceNumber}}</span>
         </ng-container>
       </td>
     </ng-container>
