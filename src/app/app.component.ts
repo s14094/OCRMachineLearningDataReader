@@ -41,6 +41,8 @@ export class AppComponent implements OnInit {
           model.probabilityInvoiceNumberColor = 2;
         } else if ((model.probabilityInvoiceNumber > (highestValue - 10)) && (model.probabilityInvoiceNumber < (highestValue - 5))) {
           model.probabilityInvoiceNumberColor = 1;
+        } else {
+          model.probabilityInvoiceNumberColor = 0;
         }
       }
       console.log(this.listModel);
