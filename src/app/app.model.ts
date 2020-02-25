@@ -24,6 +24,8 @@ export class AppModel {
   cellWidth: number;
   cellHeight: number;
   blockId: number;
+  lineCenterX: number;
+  lineCenterY: number;
   probabilityInvoiceNumber: number;
   probabilityInvoiceNumberColor = 0;
 }

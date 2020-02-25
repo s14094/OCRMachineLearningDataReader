@@ -110,6 +110,16 @@
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockLeft}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="lineCenterX">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> lCent X</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterX}} </td>
+    </ng-container>   
+
+    <ng-container matColumnDef="lineCenterY">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell> lCent Y</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterY}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="blockRight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell> block →</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockRight}} </td>

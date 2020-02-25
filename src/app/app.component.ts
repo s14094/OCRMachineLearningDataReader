@@ -13,9 +13,9 @@ export class AppComponent implements OnInit {
   title = 'OcrWebDisplay';
   listModel: AppModel[] = [];
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['fieldValue', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom', 'lineTop',
+  displayedColumns: string[] = ['fieldValue', 'blockId', 'lang', 'lineBaseline', 'lineCenterX', 'lineCenterY',  'lineLeft', 'lineRight', 'lineBottom', 'lineTop',
     'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType', 'blockName', 'blockLeft', 'blockRight',
-    'blockTop', 'blockBottom', 'blockCenterCoords', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight', 'pageResolution',
+    'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight', 'pageResolution',
     'probabilityInvoiceNumber'];
 
 
