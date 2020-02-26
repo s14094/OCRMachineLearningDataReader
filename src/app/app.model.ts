@@ -28,4 +28,8 @@ export class AppModel {
   lineCenterY: number;
   probabilityInvoiceNumber: number;
   probabilityInvoiceNumberColor = 0;
+  probInvoiceNumPositionWeight: number;
+  probInvoiceNumKeyDistanceWeight: number;
+  probInvoiceNumStructureWeight: number;
+
 }

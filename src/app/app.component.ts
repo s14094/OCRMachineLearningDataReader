@@ -17,8 +17,7 @@ export class AppComponent implements OnInit {
     'lineCenterX', 'lineCenterY',
     'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType', 'blockName', 'blockLeft', 'blockRight',
     'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight', 'pageResolution',
-    'probabilityInvoiceNumber'];
-
+    'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight', 'probInvoiceNumStructureWeight'];
 
   constructor(
     private appService: AppService

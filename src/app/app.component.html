@@ -190,6 +190,21 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="probInvoiceNumPositionWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> % position </th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumPositionWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNumKeyDistanceWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> % key dist </th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumKeyDistanceWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNumStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> % stuct </th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumStructureWeight}} </td>
+    </ng-container>
+
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
   </table>
