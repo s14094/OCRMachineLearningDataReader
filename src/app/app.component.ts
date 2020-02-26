@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppService} from './app.service';
-import {MatTableDataSource} from '@angular/material';
+import {MatSort, MatTableDataSource} from '@angular/material';
 import {AppModel} from './app.model';
 
 
@@ -13,11 +13,14 @@ export class AppComponent implements OnInit {
   title = 'OcrWebDisplay';
   listModel: AppModel[] = [];
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['fieldValue', 'blockId', 'lang', 'lineBaseline',  'lineLeft', 'lineRight', 'lineBottom', 'lineTop',
+  displayedColumns: string[] = ['fieldValue', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom', 'lineTop',
     'lineCenterX', 'lineCenterY',
     'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType', 'blockName', 'blockLeft', 'blockRight',
     'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight', 'pageResolution',
     'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight', 'probInvoiceNumStructureWeight'];
+
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private appService: AppService
@@ -36,7 +39,7 @@ export class AppComponent implements OnInit {
       for (let model of this.listModel) {
         if (model.probabilityInvoiceNumber === highestValue) {
           model.probabilityInvoiceNumberColor = 3;
-        } else if ((model.probabilityInvoiceNumber > (highestValue - 5)) && (model.probabilityInvoiceNumber < highestValue )) {
+        } else if ((model.probabilityInvoiceNumber > (highestValue - 5)) && (model.probabilityInvoiceNumber < highestValue)) {
           model.probabilityInvoiceNumberColor = 2;
         } else if ((model.probabilityInvoiceNumber > (highestValue - 10)) && (model.probabilityInvoiceNumber < (highestValue - 5))) {
           model.probabilityInvoiceNumberColor = 1;
@@ -46,6 +49,10 @@ export class AppComponent implements OnInit {
       }
       console.log(this.listModel);
       this.dataSource = new MatTableDataSource(this.listModel);
+    }, err => {
+      console.log(err);
+    }, () => {
+      this.dataSource.sort = this.sort;
     });
   }
 

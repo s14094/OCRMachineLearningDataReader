@@ -6,7 +6,7 @@
     <input (keyup)="applyFilter($event)" matInput placeholder="">
   </mat-form-field>
 
-  <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100vw; height: 100%;">
+  <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100vw; height: 100%;" matSort>
 
     <ng-container matColumnDef="fieldValue" sticky>
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 245px;"> fieldValue</th>
@@ -173,7 +173,7 @@
 
 
     <ng-container matColumnDef="probabilityInvoiceNumber">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;"> % invoice</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % invoice</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
         <ng-container *ngIf="element.probabilityInvoiceNumberColor == 0">
           <span style="color: #b2b2b2">{{element.probabilityInvoiceNumber}}</span>
@@ -191,17 +191,17 @@
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumPositionWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> % position (max_10%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumPositionWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumKeyDistanceWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> % key dist (max_30%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % key dist (max_30%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumKeyDistanceWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> % stuct (max_60%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % stuct (max_60%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumStructureWeight}} </td>
     </ng-container>
 
