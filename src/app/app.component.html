@@ -1,14 +1,20 @@
-<div class="example-container" style="width: 100%; height: 100%;">
+<div class="example-container" style="width: 99vw; height: 100%;">
 
-  <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100%; height: 100%;">
 
-    <ng-container matColumnDef="fieldValue">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 200px;"> fieldValue</th>
+  <mat-form-field style="width: 100%; background-color: #777777; padding: 5px; height: 50px;">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="">
+  </mat-form-field>
+
+  <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100vw; height: 100%;">
+
+    <ng-container matColumnDef="fieldValue" sticky>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 245px;"> fieldValue</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.fieldValue}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockId">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> bId</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> blockId</th>
         <td *matCellDef="let element"  class="custom-td" mat-cell>
           <ng-container *ngIf="element.blockId % 2 == 0">
             <span style="color: #c9ff9b">{{element.blockId}}</span>
@@ -20,7 +26,7 @@
     </ng-container>
 
     <ng-container matColumnDef="lang">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> lang</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> lang</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
         <ng-container *ngIf="element.lang == 'EnglishUnitedStates'">
           Eng
@@ -32,47 +38,57 @@
     </ng-container>
 
     <ng-container matColumnDef="lineBaseline">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> baseline</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> baseline</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>{{element.lineBaseline}}</td>
     </ng-container>
 
     <ng-container matColumnDef="lineLeft">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> line ←</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line  ←</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineLeft}} </td>
     </ng-container>
 
     <ng-container matColumnDef="lineRight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> line →</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line  →</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineRight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="lineBottom">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> line ↓</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line  ↓</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineBottom}} </td>
     </ng-container>
 
     <ng-container matColumnDef="lineTop">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> line ↑</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line  ↑</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineTop}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="lineCenterX">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line Cent X</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterX}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lineCenterY">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line Cent Y</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterY}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="parAlign">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> align</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> align</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parAlign}} </td>
     </ng-container>
 
     <ng-container matColumnDef="parStartIndent">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> pStart</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Start</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parStartIndent}} </td>
     </ng-container>
 
     <ng-container matColumnDef="parLineSpacing">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> pSpace</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Space</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parLineSpacing}} </td>
     </ng-container>
 
     <ng-container matColumnDef="cellWidth">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> cell ↔</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> cell ↔</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
         <ng-container *ngIf="element.blockType == 'Table'">
           {{element.cellWidth}}
@@ -84,7 +100,7 @@
     </ng-container>
 
     <ng-container matColumnDef="cellHeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> cell ↕</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> cell ↕</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
         <ng-container *ngIf="element.blockType == 'Table'">
           {{element.cellHeight}}
@@ -96,78 +112,68 @@
     </ng-container>
 
     <ng-container matColumnDef="blockType">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> typ</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 60px;"> typ</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockType}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockName">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> name</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> name</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockLeft">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ←</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ←</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockLeft}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="lineCenterX">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> lCent X</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterX}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineCenterY">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> lCent Y</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterY}} </td>
-    </ng-container>
-
     <ng-container matColumnDef="blockRight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> block →</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block →</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockRight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockTop">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↑</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↑</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockTop}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockBottom">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↓</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↓</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockBottom}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockCenterCoords">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> bCent</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block Cent</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockCenterCoords}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockWidth">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↔</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↔</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockWidth}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blockHeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> block ↕</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↕</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockHeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="pageWidth">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> par ↔</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par ↔</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageWidth}} </td>
     </ng-container>
 
     <ng-container matColumnDef="pageHeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> par ↕</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par ↕</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageHeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="pageResolution">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> pRes </th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Res </th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageResolution}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="probabilityInvoiceNumber">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell> % invoice </th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;"> % invoice </th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
         <ng-container *ngIf="element.probabilityInvoiceNumberColor == 0">
           <span style="color: #b2b2b2">{{element.probabilityInvoiceNumber}}</span>

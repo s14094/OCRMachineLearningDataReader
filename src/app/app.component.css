@@ -19,10 +19,28 @@
 }
 
 .example-container {
-  height: 400px;
+  /*height: 400px;*/
   overflow: auto;
+  /*width: 600px;*/
 }
 
 tr.table-row:hover {
   background: #777;
+}
+
+th.table-header:hover {
+  background: #777;
+}
+
+
+.mat-header-cell {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.mat-cell {
+  text-align: center;
+  justify-content:center;
 }
