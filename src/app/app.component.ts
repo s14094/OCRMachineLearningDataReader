@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppService} from './app.service';
-import {MatSort, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {AppModel} from './app.model';
 
 
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
     'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
 
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -48,11 +48,15 @@ export class AppComponent implements OnInit {
         }
       }
       console.log(this.listModel.length);
+      if (this.listModel != null && this.listModel.length > 0) {
+        console.log(this.listModel[0]);
+      }
       this.dataSource = new MatTableDataSource(this.listModel);
     }, err => {
       console.log(err);
     }, () => {
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   }
 
