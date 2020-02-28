@@ -19,12 +19,33 @@ export class AppComponent implements OnInit {
     'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
     'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
 
+  displayedColumnsback: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
+    'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
+    'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
+    'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
+    'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
+
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private appService: AppService
   ) {
+  }
+
+  testt(event) {
+    if (event.checked) {
+      this.displayedColumns = ['fieldValue'];
+    } else {
+      this.displayedColumns = this.displayedColumns.concat(this.displayedColumnsback);
+      // this.displayedColumns = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
+      //   'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
+      //   'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
+      //   'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
+      //   'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
+
+    }
   }
 
   ngOnInit() {
