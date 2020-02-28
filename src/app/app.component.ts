@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
     'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
     'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
-    'probInvoiceNumStructureWeight'];
+    'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
 
 
   @ViewChild(MatSort) sort: MatSort;
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
           model.probabilityInvoiceNumberColor = 0;
         }
       }
-      console.log(this.listModel);
+      console.log(this.listModel.length);
       this.dataSource = new MatTableDataSource(this.listModel);
     }, err => {
       console.log(err);

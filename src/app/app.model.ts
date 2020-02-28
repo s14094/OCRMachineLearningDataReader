@@ -33,5 +33,6 @@ export class AppModel {
   probInvoiceNumPositionWeight: number;
   probInvoiceNumKeyDistanceWeight: number;
   probInvoiceNumStructureWeight: number;
+  probInvoiceLineStructureWeight: number;
 
 }

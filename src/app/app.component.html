@@ -220,13 +220,18 @@
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumKeyDistanceWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % key dist (max_30%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % key dist (max_20%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumKeyDistanceWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % stuct (max_60%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % word stuct (max_50%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumStructureWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceLineStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % line stuct (max_20%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceLineStructureWeight}} </td>
     </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
