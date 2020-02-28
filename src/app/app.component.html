@@ -16,10 +16,10 @@
     <ng-container matColumnDef="pageId">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> pageId</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.blockId % 2 == 0">
+        <ng-container *ngIf="element.pageId % 2 == 0">
           <span style="color: #c9ff9b">{{element.pageId}}</span>
         </ng-container>
-        <ng-container *ngIf="element.blockId % 2 != 0">
+        <ng-container *ngIf="element.pageId % 2 != 0">
           <span style="color: #aae5ff">{{element.pageId}}</span>
         </ng-container>
       </td>
