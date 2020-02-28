@@ -13,11 +13,11 @@ export class AppComponent implements OnInit {
   title = 'OcrWebDisplay';
   listModel: AppModel[] = [];
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['fieldValue', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom', 'lineTop',
-    'lineCenterX', 'lineCenterY',
-    'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType', 'blockName', 'blockLeft', 'blockRight',
-    'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight', 'pageResolution',
-    'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight', 'probInvoiceNumStructureWeight'];
+  displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
+    'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
+    'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
+    'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
+    'probInvoiceNumStructureWeight'];
 
 
   @ViewChild(MatSort) sort: MatSort;

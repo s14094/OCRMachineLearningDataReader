@@ -25,6 +25,7 @@ export class AppModel {
   cellHeight: number;
   blockId: number;
   pageId: number;
+  parId; number;
   lineCenterX: number;
   lineCenterY: number;
   probabilityInvoiceNumber: number;
