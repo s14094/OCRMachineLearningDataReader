@@ -13,17 +13,42 @@ export class AppComponent implements OnInit {
   title = 'OcrWebDisplay';
   listModel: AppModel[] = [];
   dataSource = new MatTableDataSource();
+
+  bBasicData = true;
+  bInvoiceNum = true;
+  bDateCreate = false;
+  bNIP = false;
+  bContractorName = false;
+  bDatePayment = false;
+  bPaymentMethod = false;
+  bPaymentTerms = false;
+
+
   displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
     'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
     'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
     'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
     'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
 
-  displayedColumnsback: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
+  basicDataColumns: string[] = ['parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
     'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
     'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
-    'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
+    'pageResolution'];
+
+  invoiceNumberColumns: string[] = ['probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
     'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
+
+  dateCreateColumns: string[] = [];
+
+  nipColumns: string[] = [];
+
+  contractorNameColumns: string[] = [];
+
+  datePaymentColumns: string[] = [];
+
+  paymentMethodColumns: string[] = [];
+
+  paymentTermsColumns: string[] = [];
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,17 +59,31 @@ export class AppComponent implements OnInit {
   ) {
   }
 
-  testt(event) {
-    if (event.checked) {
-      this.displayedColumns = ['fieldValue'];
-    } else {
-      this.displayedColumns = this.displayedColumns.concat(this.displayedColumnsback);
-      // this.displayedColumns = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
-      //   'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
-      //   'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
-      //   'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
-      //   'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
-
+  toggleCol(event) {
+    this.displayedColumns = ['fieldValue'];
+    if (this.bBasicData) {
+      this.displayedColumns = this.displayedColumns.concat(this.basicDataColumns);
+    }
+    if (this.bInvoiceNum) {
+      this.displayedColumns = this.displayedColumns.concat(this.invoiceNumberColumns);
+    }
+    if (this.bDateCreate) {
+      this.displayedColumns = this.displayedColumns.concat(this.dateCreateColumns);
+    }
+    if (this.bNIP) {
+      this.displayedColumns = this.displayedColumns.concat(this.nipColumns);
+    }
+    if (this.bContractorName) {
+      this.displayedColumns = this.displayedColumns.concat(this.contractorNameColumns);
+    }
+    if (this.bDatePayment) {
+      this.displayedColumns = this.displayedColumns.concat(this.datePaymentColumns);
+    }
+    if (this.bPaymentMethod) {
+      this.displayedColumns = this.displayedColumns.concat(this.paymentMethodColumns);
+    }
+    if (this.bPaymentTerms) {
+      this.displayedColumns = this.displayedColumns.concat(this.paymentTermsColumns);
     }
   }
 

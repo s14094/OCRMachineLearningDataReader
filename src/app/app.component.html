@@ -238,8 +238,17 @@
   <mat-form-field class="mat-filter-sticky" color="accent">
     <mat-label>Search</mat-label>
     <input (keyup)="applyFilter($event)" matInput placeholder="" color="accent">
-
-    <mat-checkbox (change)="testt($event)">test</mat-checkbox>
   </mat-form-field>
+
+  <div class="mat-columns-sticky" color="accent">
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bBasicData">Dane podstawowe</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bInvoiceNum">Numer faktury</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDateCreate">Data wystawienia</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP">NIP Kontrahenta</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName">Nazwa kontrahenta</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment">Termin płatności</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentMethod">Forma płatności</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentTerms">Warunki płatności</mat-checkbox>
+  </div>
 
 </div>

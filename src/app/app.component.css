@@ -67,3 +67,17 @@ th.table-header:hover {
   border-right: 2px solid white;
   border-left: 1px solid white;
 }
+
+.mat-columns-sticky {
+  bottom: 65px;
+  color: white;
+  left: 0px;
+  background: #424242;
+  padding-left: 10px;
+  width: 200px;
+  position: absolute;
+  z-index: 10;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-left: 1px solid white;
+}
