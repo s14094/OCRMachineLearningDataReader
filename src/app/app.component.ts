@@ -38,7 +38,8 @@ export class AppComponent implements OnInit {
   invoiceNumberColumns: string[] = ['probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
     'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
 
-  dateCreateColumns: string[] = ['probabilityInvoiceDateCreate', 'probInvoiceDateCreatePositionWeight'];
+  dateCreateColumns: string[] = ['probabilityInvoiceDateCreate', 'probInvoiceDateCreatePositionWeight', 'probInvoiceDateCreateAlignWeight',
+    'probInvoiceDateCreateRangeWeight'];
 
   nipColumns: string[] = [];
 

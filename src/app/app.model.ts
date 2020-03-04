@@ -38,4 +38,6 @@ export class AppModel {
   probabilityInvoiceDateCreate: number;
   probabilityInvoiceDateCreateColor = 0;
   probInvoiceDateCreatePositionWeight: number;
+  probInvoiceDateCreateRangeWeight: number;
+  probInvoiceDateCreateAlignWeight: number;
 }
