@@ -252,15 +252,16 @@
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreatePositionWeight}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="probInvoiceDateCreateAlignWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_60%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateAlignWeight}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="probInvoiceDateCreateRangeWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_45%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_30%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateRangeWeight}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="probInvoiceDateCreateAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_45%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateAlignWeight}} </td>
-    </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>

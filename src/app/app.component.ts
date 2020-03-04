@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   bBasicData = true;
   bInvoiceNum = false;
-  bDateCreate = true;
+  bDateCreate = false;
   bNIP = false;
   bContractorName = false;
   bDatePayment = false;
@@ -27,8 +27,7 @@ export class AppComponent implements OnInit {
   displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
     'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
     'blockName', 'blockLeft', 'blockRight', 'blockTop', 'blockBottom', 'blockWidth', 'blockHeight', 'pageWidth', 'pageHeight',
-    'pageResolution', 'probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
-    'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
+    'pageResolution'];
 
   basicDataColumns: string[] = ['parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
     'lineTop', 'lineCenterX', 'lineCenterY', 'parAlign', 'parStartIndent', 'parLineSpacing', 'cellWidth', 'cellHeight', 'blockType',
