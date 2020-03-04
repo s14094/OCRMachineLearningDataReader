@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
   bBasicData = true;
-  bInvoiceNum = true;
-  bDateCreate = false;
+  bInvoiceNum = false;
+  bDateCreate = true;
   bNIP = false;
   bContractorName = false;
   bDatePayment = false;
