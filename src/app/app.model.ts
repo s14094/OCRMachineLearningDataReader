@@ -35,4 +35,7 @@ export class AppModel {
   probInvoiceNumStructureWeight: number;
   probInvoiceLineStructureWeight: number;
 
+  probabilityInvoiceDateCreate: number;
+  probabilityInvoiceDateCreateColor = 0;
+  probInvoiceDateCreatePositionWeight: number;
 }

@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   invoiceNumberColumns: string[] = ['probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
     'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
 
-  dateCreateColumns: string[] = [];
+  dateCreateColumns: string[] = ['probabilityInvoiceDateCreate', 'probInvoiceDateCreatePositionWeight'];
 
   nipColumns: string[] = [];
 
@@ -90,22 +90,37 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.appService.getData().subscribe(result => {
       this.listModel = result;
-      var highestValue = 0;
+      var highestValueInvoiceNum = 0;
+      var highestValueInvoiceDateCreate = 0;
       for (const model of this.listModel) {
-        if (model.probabilityInvoiceNumber > highestValue) {
-          highestValue = model.probabilityInvoiceNumber;
+        if (model.probabilityInvoiceNumber > highestValueInvoiceNum) {
+          highestValueInvoiceNum = model.probabilityInvoiceNumber;
+        }
+        if (model.probabilityInvoiceDateCreate > highestValueInvoiceDateCreate) {
+          highestValueInvoiceDateCreate = model.probabilityInvoiceDateCreate;
         }
       }
       for (let model of this.listModel) {
-        if (model.probabilityInvoiceNumber === highestValue) {
+        if (model.probabilityInvoiceNumber === highestValueInvoiceNum) {
           model.probabilityInvoiceNumberColor = 3;
-        } else if ((model.probabilityInvoiceNumber > (highestValue - 5)) && (model.probabilityInvoiceNumber < highestValue)) {
+        } else if ((model.probabilityInvoiceNumber > (highestValueInvoiceNum - 5)) && (model.probabilityInvoiceNumber < highestValueInvoiceNum)) {
           model.probabilityInvoiceNumberColor = 2;
-        } else if ((model.probabilityInvoiceNumber > (highestValue - 10)) && (model.probabilityInvoiceNumber < (highestValue - 5))) {
+        } else if ((model.probabilityInvoiceNumber > (highestValueInvoiceNum - 10)) && (model.probabilityInvoiceNumber < (highestValueInvoiceNum - 5))) {
           model.probabilityInvoiceNumberColor = 1;
         } else {
           model.probabilityInvoiceNumberColor = 0;
         }
+
+        if (model.probabilityInvoiceDateCreate === highestValueInvoiceDateCreate) {
+          model.probabilityInvoiceDateCreateColor = 3;
+        } else if ((model.probabilityInvoiceDateCreate > (highestValueInvoiceDateCreate - 5)) && (model.probabilityInvoiceDateCreate < highestValueInvoiceDateCreate)) {
+          model.probabilityInvoiceDateCreateColor = 2;
+        } else if ((model.probabilityInvoiceDateCreate > (highestValueInvoiceDateCreate - 10)) && (model.probabilityInvoiceDateCreate < (highestValueInvoiceDateCreate - 5))) {
+          model.probabilityInvoiceDateCreateColor = 1;
+        } else {
+          model.probabilityInvoiceDateCreateColor = 0;
+        }
+
       }
       console.log(this.listModel.length);
       if (this.listModel != null && this.listModel.length > 0) {

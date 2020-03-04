@@ -229,6 +229,29 @@
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceLineStructureWeight}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="probabilityInvoiceDateCreate">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date create</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 0">
+          <span style="color: #b2b2b2">{{element.probabilityInvoiceDateCreate}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 1">
+          <span style="color: #ffff99">{{element.probabilityInvoiceDateCreate}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 2">
+          <span style="color: #9eff8d">{{element.probabilityInvoiceDateCreate}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 3">
+          <span style="color: #00ff11">{{element.probabilityInvoiceDateCreate}}</span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceDateCreatePositionWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreatePositionWeight}} </td>
+    </ng-container>
+
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
   </table>
