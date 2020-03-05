@@ -284,11 +284,11 @@
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bBasicData">Dane podstawowe</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bInvoiceNum">Numer faktury</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDateCreate">Data wystawienia</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP">NIP Kontrahenta</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName">Nazwa kontrahenta</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment">Termin płatności</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentMethod">Forma płatności</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentTerms">Warunki płatności</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP" [disabled]="true">NIP Kontrahenta</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName" [disabled]="true">Nazwa kontrahenta</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment" [disabled]="true">Termin płatności</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentMethod" [disabled]="true">Forma płatności</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentTerms" [disabled]="true">Warunki płatności</mat-checkbox>
   </div>
 
 </div>
