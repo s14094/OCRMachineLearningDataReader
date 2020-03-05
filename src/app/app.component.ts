@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppService} from './app.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {AppModel} from './app.model';
-import gitInfo from '../../../git-version.json';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +21,6 @@ export class AppComponent implements OnInit {
   bDatePayment = false;
   bPaymentMethod = false;
   bPaymentTerms = false;
-  gitVer: any;
 
 
   displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
@@ -89,7 +87,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gitVer = gitInfo;
     this.appService.getData().subscribe(result => {
       this.listModel = result;
       var highestValueInvoiceNum = 0;
