@@ -253,13 +253,19 @@
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceDateCreateAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_60%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateAlignWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceDateCreateRangeWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_30%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateRangeWeight}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="probInvoiceDateCreateDateStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateDateStructureWeight}} </td>
     </ng-container>
 
 

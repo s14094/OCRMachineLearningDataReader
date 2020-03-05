@@ -40,4 +40,5 @@ export class AppModel {
   probInvoiceDateCreatePositionWeight: number;
   probInvoiceDateCreateRangeWeight: number;
   probInvoiceDateCreateAlignWeight: number;
+  probInvoiceDateCreateDateStructureWeight: number;
 }
