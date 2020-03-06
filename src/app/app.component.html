@@ -269,6 +269,46 @@
     </ng-container>
 
 
+    <ng-container matColumnDef="probabilityInvoiceNipContractor">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % nip contractor</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 0">
+          <span style="color: #b2b2b2">{{element.probabilityInvoiceNipContractor}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 1">
+          <span style="color: #ffff99">{{element.probabilityInvoiceNipContractor}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 2">
+          <span style="color: #9eff8d">{{element.probabilityInvoiceNipContractor}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 3">
+          <span style="color: #00ff11">{{element.probabilityInvoiceNipContractor}}</span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNipContractorPositionWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorPositionWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNipContractorAlignWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorAlignWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNipContractorRangeWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorRangeWeight}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="probInvoiceNipContractorStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorStructureWeight}} </td>
+    </ng-container>
+
+
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
   </table>
@@ -284,7 +324,7 @@
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bBasicData">Dane podstawowe</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bInvoiceNum">Numer faktury</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDateCreate">Data wystawienia</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP" [disabled]="true">NIP Kontrahenta</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP">NIP Kontrahenta</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName" [disabled]="true">Nazwa kontrahenta</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment" [disabled]="true">Termin płatności</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentMethod" [disabled]="true">Forma płatności</mat-checkbox>

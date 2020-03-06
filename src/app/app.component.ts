@@ -39,7 +39,8 @@ export class AppComponent implements OnInit {
   dateCreateColumns: string[] = ['probabilityInvoiceDateCreate', 'probInvoiceDateCreatePositionWeight', 'probInvoiceDateCreateAlignWeight',
     'probInvoiceDateCreateRangeWeight', 'probInvoiceDateCreateDateStructureWeight'];
 
-  nipColumns: string[] = [];
+  nipColumns: string[] = ['probabilityInvoiceNipContractor' , 'probInvoiceNipContractorPositionWeight', 'probInvoiceNipContractorRangeWeight',
+  'probInvoiceNipContractorAlignWeight', 'probInvoiceNipContractorStructureWeight'];
 
   contractorNameColumns: string[] = [];
 
@@ -91,12 +92,16 @@ export class AppComponent implements OnInit {
       this.listModel = result;
       var highestValueInvoiceNum = 0;
       var highestValueInvoiceDateCreate = 0;
+      var highestValueInvoiceNipContractor = 0;
       for (const model of this.listModel) {
         if (model.probabilityInvoiceNumber > highestValueInvoiceNum) {
           highestValueInvoiceNum = model.probabilityInvoiceNumber;
         }
         if (model.probabilityInvoiceDateCreate > highestValueInvoiceDateCreate) {
           highestValueInvoiceDateCreate = model.probabilityInvoiceDateCreate;
+        }
+        if (model.probabilityInvoiceNipContractor > highestValueInvoiceNipContractor) {
+          highestValueInvoiceNipContractor = model.probabilityInvoiceNipContractor;
         }
       }
       for (let model of this.listModel) {
@@ -118,6 +123,16 @@ export class AppComponent implements OnInit {
           model.probabilityInvoiceDateCreateColor = 1;
         } else {
           model.probabilityInvoiceDateCreateColor = 0;
+        }
+
+        if (model.probabilityInvoiceNipContractor === highestValueInvoiceNipContractor) {
+          model.probabilityInvoiceNipContractorColor = 3;
+        } else if ((model.probabilityInvoiceNipContractor > (highestValueInvoiceNipContractor - 5)) && (model.probabilityInvoiceNipContractor < highestValueInvoiceNipContractor)) {
+          model.probabilityInvoiceNipContractorColor = 2;
+        } else if ((model.probabilityInvoiceNipContractor > (highestValueInvoiceNipContractor - 10)) && (model.probabilityInvoiceNipContractor < (highestValueInvoiceNipContractor - 5))) {
+          model.probabilityInvoiceNipContractorColor = 1;
+        } else {
+          model.probabilityInvoiceNipContractorColor = 0;
         }
 
       }

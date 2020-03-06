@@ -41,4 +41,11 @@ export class AppModel {
   probInvoiceDateCreateRangeWeight: number;
   probInvoiceDateCreateAlignWeight: number;
   probInvoiceDateCreateDateStructureWeight: number;
+
+  probabilityInvoiceNipContractor: number;
+  probabilityInvoiceNipContractorColor = 0;
+  probInvoiceNipContractorPositionWeight: number;
+  probInvoiceNipContractorRangeWeight: number;
+  probInvoiceNipContractorAlignWeight: number;
+  probInvoiceNipContractorStructureWeight: number;
 }
