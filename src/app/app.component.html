@@ -293,18 +293,28 @@
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNipContractorAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_10%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorAlignWeight}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="probInvoiceNipContractorRangeWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorRangeWeight}} </td>
+    <ng-container matColumnDef="probInvoiceNipContractorRangeNipWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range nip (max_10%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorRangeNipWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNipContractorRangeKeyWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range key (max_10%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorRangeKeyWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceNipContractorBlockStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block structure (max_20%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorBlockStructureWeight}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="probInvoiceNipContractorStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_40%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorStructureWeight}} </td>
     </ng-container>
 

@@ -45,7 +45,9 @@ export class AppModel {
   probabilityInvoiceNipContractor: number;
   probabilityInvoiceNipContractorColor = 0;
   probInvoiceNipContractorPositionWeight: number;
-  probInvoiceNipContractorRangeWeight: number;
+  probInvoiceNipContractorRangeNipWeight: number;
+  probInvoiceNipContractorRangeKeyWeight: number;
   probInvoiceNipContractorAlignWeight: number;
   probInvoiceNipContractorStructureWeight: number;
+  probInvoiceNipContractorBlockStructureWeight: number;
 }
