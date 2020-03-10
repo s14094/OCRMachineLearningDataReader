@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppService} from './app.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {AppModel} from './app.model';
+import {AppModel, ValueField} from './app.model';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import {AppModel} from './app.model';
 })
 export class AppComponent implements OnInit {
   title = 'OcrWebDisplay';
-  listModel: AppModel[] = [];
+  appModel: AppModel = new AppModel();
   dataSource = new MatTableDataSource();
 
   bBasicData = true;
@@ -39,8 +39,8 @@ export class AppComponent implements OnInit {
   dateCreateColumns: string[] = ['probabilityInvoiceDateCreate', 'probInvoiceDateCreatePositionWeight', 'probInvoiceDateCreateAlignWeight',
     'probInvoiceDateCreateRangeWeight', 'probInvoiceDateCreateDateStructureWeight'];
 
-  nipColumns: string[] = ['probabilityInvoiceNipContractor' , 'probInvoiceNipContractorPositionWeight', 'probInvoiceNipContractorRangeNipWeight',
-  'probInvoiceNipContractorRangeKeyWeight', 'probInvoiceNipContractorAlignWeight', 'probInvoiceNipContractorStructureWeight',
+  nipColumns: string[] = ['probabilityInvoiceNipContractor', 'probInvoiceNipContractorPositionWeight', 'probInvoiceNipContractorRangeNipWeight',
+    'probInvoiceNipContractorRangeKeyWeight', 'probInvoiceNipContractorAlignWeight', 'probInvoiceNipContractorStructureWeight',
     'probInvoiceNipContractorBlockStructureWeight'];
 
   contractorNameColumns: string[] = [];
@@ -90,58 +90,58 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.appService.getData().subscribe(result => {
-      this.listModel = result;
+      this.appModel = result;
       var highestValueInvoiceNum = 0;
       var highestValueInvoiceDateCreate = 0;
       var highestValueInvoiceNipContractor = 0;
-      for (const model of this.listModel) {
-        if (model.probabilityInvoiceNumber > highestValueInvoiceNum) {
-          highestValueInvoiceNum = model.probabilityInvoiceNumber;
+      for (const model of this.appModel.valueFieldList) {
+        if (model.invoiceNumber.probabilityInvoiceNumber > highestValueInvoiceNum) {
+          highestValueInvoiceNum = model.invoiceNumber.probabilityInvoiceNumber;
         }
-        if (model.probabilityInvoiceDateCreate > highestValueInvoiceDateCreate) {
-          highestValueInvoiceDateCreate = model.probabilityInvoiceDateCreate;
+        if (model.invoiceDateCreate.probabilityInvoiceDateCreate > highestValueInvoiceDateCreate) {
+          highestValueInvoiceDateCreate = model.invoiceDateCreate.probabilityInvoiceDateCreate;
         }
-        if (model.probabilityInvoiceNipContractor > highestValueInvoiceNipContractor) {
-          highestValueInvoiceNipContractor = model.probabilityInvoiceNipContractor;
+        if (model.invoiceNip.probabilityInvoiceNipContractor > highestValueInvoiceNipContractor) {
+          highestValueInvoiceNipContractor = model.invoiceNip.probabilityInvoiceNipContractor;
         }
       }
-      for (let model of this.listModel) {
-        if (model.probabilityInvoiceNumber === highestValueInvoiceNum) {
-          model.probabilityInvoiceNumberColor = 3;
-        } else if ((model.probabilityInvoiceNumber > (highestValueInvoiceNum - 5)) && (model.probabilityInvoiceNumber < highestValueInvoiceNum)) {
-          model.probabilityInvoiceNumberColor = 2;
-        } else if ((model.probabilityInvoiceNumber > (highestValueInvoiceNum - 10)) && (model.probabilityInvoiceNumber < (highestValueInvoiceNum - 5))) {
-          model.probabilityInvoiceNumberColor = 1;
+      for (let model of this.appModel.valueFieldList) {
+        if (model.invoiceNumber.probabilityInvoiceNumber === highestValueInvoiceNum) {
+          model.invoiceNumber.probabilityInvoiceNumberColor = 3;
+        } else if ((model.invoiceNumber.probabilityInvoiceNumber > (highestValueInvoiceNum - 5)) && (model.invoiceNumber.probabilityInvoiceNumber < highestValueInvoiceNum)) {
+          model.invoiceNumber.probabilityInvoiceNumberColor = 2;
+        } else if ((model.invoiceNumber.probabilityInvoiceNumber > (highestValueInvoiceNum - 10)) && (model.invoiceNumber.probabilityInvoiceNumber < (highestValueInvoiceNum - 5))) {
+          model.invoiceNumber.probabilityInvoiceNumberColor = 1;
         } else {
-          model.probabilityInvoiceNumberColor = 0;
+          model.invoiceNumber.probabilityInvoiceNumberColor = 0;
         }
 
-        if (model.probabilityInvoiceDateCreate === highestValueInvoiceDateCreate) {
-          model.probabilityInvoiceDateCreateColor = 3;
-        } else if ((model.probabilityInvoiceDateCreate > (highestValueInvoiceDateCreate - 5)) && (model.probabilityInvoiceDateCreate < highestValueInvoiceDateCreate)) {
-          model.probabilityInvoiceDateCreateColor = 2;
-        } else if ((model.probabilityInvoiceDateCreate > (highestValueInvoiceDateCreate - 10)) && (model.probabilityInvoiceDateCreate < (highestValueInvoiceDateCreate - 5))) {
-          model.probabilityInvoiceDateCreateColor = 1;
+        if (model.invoiceDateCreate.probabilityInvoiceDateCreate === highestValueInvoiceDateCreate) {
+          model.invoiceDateCreate.probabilityInvoiceDateCreateColor = 3;
+        } else if ((model.invoiceDateCreate.probabilityInvoiceDateCreate > (highestValueInvoiceDateCreate - 5)) && (model.invoiceDateCreate.probabilityInvoiceDateCreate < highestValueInvoiceDateCreate)) {
+          model.invoiceDateCreate.probabilityInvoiceDateCreateColor = 2;
+        } else if ((model.invoiceDateCreate.probabilityInvoiceDateCreate > (highestValueInvoiceDateCreate - 10)) && (model.invoiceDateCreate.probabilityInvoiceDateCreate < (highestValueInvoiceDateCreate - 5))) {
+          model.invoiceDateCreate.probabilityInvoiceDateCreateColor = 1;
         } else {
-          model.probabilityInvoiceDateCreateColor = 0;
+          model.invoiceDateCreate.probabilityInvoiceDateCreateColor = 0;
         }
 
-        if (model.probabilityInvoiceNipContractor === highestValueInvoiceNipContractor) {
-          model.probabilityInvoiceNipContractorColor = 3;
-        } else if ((model.probabilityInvoiceNipContractor > (highestValueInvoiceNipContractor - 5)) && (model.probabilityInvoiceNipContractor < highestValueInvoiceNipContractor)) {
-          model.probabilityInvoiceNipContractorColor = 2;
-        } else if ((model.probabilityInvoiceNipContractor > (highestValueInvoiceNipContractor - 10)) && (model.probabilityInvoiceNipContractor < (highestValueInvoiceNipContractor - 5))) {
-          model.probabilityInvoiceNipContractorColor = 1;
+        if (model.invoiceNip.probabilityInvoiceNipContractor === highestValueInvoiceNipContractor) {
+          model.invoiceNip.probabilityInvoiceNipContractorColor = 3;
+        } else if ((model.invoiceNip.probabilityInvoiceNipContractor > (highestValueInvoiceNipContractor - 5)) && (model.invoiceNip.probabilityInvoiceNipContractor < highestValueInvoiceNipContractor)) {
+          model.invoiceNip.probabilityInvoiceNipContractorColor = 2;
+        } else if ((model.invoiceNip.probabilityInvoiceNipContractor > (highestValueInvoiceNipContractor - 10)) && (model.invoiceNip.probabilityInvoiceNipContractor < (highestValueInvoiceNipContractor - 5))) {
+          model.invoiceNip.probabilityInvoiceNipContractorColor = 1;
         } else {
-          model.probabilityInvoiceNipContractorColor = 0;
+          model.invoiceNip.probabilityInvoiceNipContractorColor = 0;
         }
 
       }
-      console.log(this.listModel.length);
-      if (this.listModel != null && this.listModel.length > 0) {
-        console.log(this.listModel[0]);
+      console.log(this.appModel.valueFieldList.length);
+      if (this.appModel != null && this.appModel.valueFieldList.length > 0) {
+        console.log(this.appModel.valueFieldList[0]);
       }
-      this.dataSource = new MatTableDataSource(this.listModel);
+      this.dataSource = new MatTableDataSource(this.appModel.valueFieldList);
     }, err => {
       console.log(err);
     }, () => {

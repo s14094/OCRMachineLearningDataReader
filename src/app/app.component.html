@@ -194,128 +194,128 @@
     <ng-container matColumnDef="probabilityInvoiceNumber">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % invoice</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 0">
-          <span style="color: #b2b2b2">{{element.probabilityInvoiceNumber}}</span>
+        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 0">
+          <span style="color: #b2b2b2">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 1">
-          <span style="color: #ffff99">{{element.probabilityInvoiceNumber}}</span>
+        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 1">
+          <span style="color: #ffff99">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 2">
-          <span style="color: #9eff8d">{{element.probabilityInvoiceNumber}}</span>
+        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 2">
+          <span style="color: #9eff8d">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceNumberColor == 3">
-          <span style="color: #00ff11">{{element.probabilityInvoiceNumber}}</span>
+        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 3">
+          <span style="color: #00ff11">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
         </ng-container>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumPositionWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumPositionWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceNumPositionWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumKeyDistanceWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % key dist (max_20%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumKeyDistanceWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceNumKeyDistanceWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNumStructureWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % word stuct (max_50%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNumStructureWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceNumStructureWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceLineStructureWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % line stuct (max_20%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceLineStructureWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceLineStructureWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probabilityInvoiceDateCreate">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date create</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 0">
-          <span style="color: #b2b2b2">{{element.probabilityInvoiceDateCreate}}</span>
+        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 0">
+          <span style="color: #b2b2b2">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 1">
-          <span style="color: #ffff99">{{element.probabilityInvoiceDateCreate}}</span>
+        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 1">
+          <span style="color: #ffff99">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 2">
-          <span style="color: #9eff8d">{{element.probabilityInvoiceDateCreate}}</span>
+        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 2">
+          <span style="color: #9eff8d">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceDateCreateColor == 3">
-          <span style="color: #00ff11">{{element.probabilityInvoiceDateCreate}}</span>
+        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 3">
+          <span style="color: #00ff11">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
         </ng-container>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceDateCreatePositionWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreatePositionWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreatePositionWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceDateCreateAlignWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateAlignWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateAlignWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceDateCreateRangeWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateRangeWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateRangeWeight}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="probInvoiceDateCreateDateStructureWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceDateCreateDateStructureWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateDateStructureWeight}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="probabilityInvoiceNipContractor">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % nip contractor</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 0">
-          <span style="color: #b2b2b2">{{element.probabilityInvoiceNipContractor}}</span>
+        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 0">
+          <span style="color: #b2b2b2">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 1">
-          <span style="color: #ffff99">{{element.probabilityInvoiceNipContractor}}</span>
+        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 1">
+          <span style="color: #ffff99">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 2">
-          <span style="color: #9eff8d">{{element.probabilityInvoiceNipContractor}}</span>
+        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 2">
+          <span style="color: #9eff8d">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
         </ng-container>
-        <ng-container *ngIf="element.probabilityInvoiceNipContractorColor == 3">
-          <span style="color: #00ff11">{{element.probabilityInvoiceNipContractor}}</span>
+        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 3">
+          <span style="color: #00ff11">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
         </ng-container>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNipContractorPositionWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorPositionWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorPositionWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNipContractorAlignWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorAlignWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorAlignWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNipContractorRangeNipWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range nip (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorRangeNipWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorRangeNipWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNipContractorRangeKeyWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range key (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorRangeKeyWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorRangeKeyWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceNipContractorBlockStructureWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block structure (max_20%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorBlockStructureWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorBlockStructureWeight}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="probInvoiceNipContractorStructureWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_40%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.probInvoiceNipContractorStructureWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorStructureWeight}} </td>
     </ng-container>
 
 

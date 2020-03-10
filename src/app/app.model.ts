@@ -1,4 +1,11 @@
 export class AppModel {
+  valueFieldList: ValueField[];
+  invoiceNumber: ValueField;
+  invoiceDateCreate: ValueField;
+  invoiceNip: ValueField;
+}
+
+export class ValueField {
   pageWidth: number;
   pageHeight: number;
   pageResolution: number;
@@ -25,23 +32,35 @@ export class AppModel {
   cellHeight: number;
   blockId: number;
   pageId: number;
-  parId; number;
+  parId;
+  number;
   lineCenterX: number;
   lineCenterY: number;
+
+  invoiceNumber: InvoiceNumber;
+  invoiceDateCreate: InvoiceDateCreate;
+  invoiceNip: InvoiceNip;
+}
+
+export class InvoiceNumber {
   probabilityInvoiceNumber: number;
   probabilityInvoiceNumberColor = 0;
   probInvoiceNumPositionWeight: number;
   probInvoiceNumKeyDistanceWeight: number;
   probInvoiceNumStructureWeight: number;
   probInvoiceLineStructureWeight: number;
+}
 
+export class InvoiceDateCreate {
   probabilityInvoiceDateCreate: number;
   probabilityInvoiceDateCreateColor = 0;
   probInvoiceDateCreatePositionWeight: number;
   probInvoiceDateCreateRangeWeight: number;
   probInvoiceDateCreateAlignWeight: number;
   probInvoiceDateCreateDateStructureWeight: number;
+}
 
+export class InvoiceNip {
   probabilityInvoiceNipContractor: number;
   probabilityInvoiceNipContractorColor = 0;
   probInvoiceNipContractorPositionWeight: number;
