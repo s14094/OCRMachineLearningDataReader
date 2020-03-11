@@ -339,6 +339,7 @@
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment" [disabled]="true">Termin płatności</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentMethod" [disabled]="true">Forma płatności</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentTerms" [disabled]="true">Warunki płatności</mat-checkbox>
+    <button mat-stroked-button (click)="openDialog()">Result</button>
   </div>
 
 </div>

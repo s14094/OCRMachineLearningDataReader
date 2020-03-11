@@ -32,13 +32,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatChipsModule} from '@angular/material/chips';
-import {AppComponent} from './app.component';
+import {AppComponent, ResultDialog} from './app.component';
 import {AppService} from './app.service';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResultDialog
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,10 @@ import {HttpClientModule} from '@angular/common/http';
     MatSortModule
   ],
   providers: [AppService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ResultDialog
+  ]
 })
 export class AppModule {
 }

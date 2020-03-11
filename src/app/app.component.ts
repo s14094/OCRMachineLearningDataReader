@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {AppService} from './app.service';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {AppModel, ValueField} from './app.model';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {AppModel} from './app.model';
 
 @Component({
   selector: 'app-root',
@@ -56,7 +56,8 @@ export class AppComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private appService: AppService
+    private appService: AppService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -86,6 +87,24 @@ export class AppComponent implements OnInit {
     if (this.bPaymentTerms) {
       this.displayedColumns = this.displayedColumns.concat(this.paymentTermsColumns);
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ResultDialog, {
+      width: '250px',
+      data: {
+        bestResultNumber: this.appModel.invoiceNumber.fieldValue,
+        bBestResultNumber: this.appModel.invoiceNumber.invoiceNumber.probabilityInvoiceNumber,
+        bestResultDateCreate: this.appModel.invoiceDateCreate.fieldValue,
+        bBestResultDateCreate: this.appModel.invoiceDateCreate.invoiceDateCreate.probabilityInvoiceDateCreate,
+        bestResultNip: this.appModel.invoiceNip.fieldValue,
+        bBestResultNip: this.appModel.invoiceNip.invoiceNip.probabilityInvoiceNipContractor
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngOnInit() {
@@ -153,6 +172,32 @@ export class AppComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+}
+
+export interface DialogData {
+  bestResultNumber: string;
+  bBestResultNumber: string;
+  bestResultDateCreate: string;
+  bBestResultDateCreate: string;
+  bestResultNip: string;
+  bBestResultNip: string;
+}
+
+@Component({
+  selector: 'app-result-dialog',
+  templateUrl: 'result-dialog.html',
+})
+// tslint:disable-next-line:component-class-suffix
+export class ResultDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<ResultDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }
