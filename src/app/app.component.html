@@ -319,6 +319,42 @@
     </ng-container>
 
 
+    <ng-container matColumnDef="probabilityInvoiceDatePayment">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date payment</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell>
+        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 0">
+          <span style="color: #b2b2b2">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 1">
+          <span style="color: #ffff99">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 2">
+          <span style="color: #9eff8d">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+        </ng-container>
+        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 3">
+          <span style="color: #00ff11">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="probInvoiceDatePaymentAlignWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentAlignWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceDatePaymentRangeWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentRangeWeight}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="probInvoiceDatePaymentDateStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentDateStructureWeight}} </td>
+    </ng-container>
+
+
     <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
   </table>
@@ -336,7 +372,7 @@
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDateCreate">Data wystawienia</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP">NIP Kontrahenta</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName" [disabled]="true">Nazwa kontrahenta</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment" [disabled]="true">Termin płatności</mat-checkbox>
+    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment">Termin płatności</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentMethod" [disabled]="true">Forma płatności</mat-checkbox>
     <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bPaymentTerms" [disabled]="true">Warunki płatności</mat-checkbox>
     <button mat-stroked-button (click)="openDialog()">Result</button>

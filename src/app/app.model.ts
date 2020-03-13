@@ -3,6 +3,7 @@ export class AppModel {
   invoiceNumber: ValueField;
   invoiceDateCreate: ValueField;
   invoiceNip: ValueField;
+  invoiceDatePayment: ValueField;
 }
 
 export class ValueField {
@@ -32,14 +33,14 @@ export class ValueField {
   cellHeight: number;
   blockId: number;
   pageId: number;
-  parId;
-  number;
+  parId: number;
   lineCenterX: number;
   lineCenterY: number;
 
   invoiceNumber: InvoiceNumber;
   invoiceDateCreate: InvoiceDateCreate;
   invoiceNip: InvoiceNip;
+  invoiceDatePayment: InvoiceDatePayment;
 }
 
 export class InvoiceNumber {
@@ -69,4 +70,13 @@ export class InvoiceNip {
   probInvoiceNipContractorAlignWeight: number;
   probInvoiceNipContractorStructureWeight: number;
   probInvoiceNipContractorBlockStructureWeight: number;
+}
+
+
+export class InvoiceDatePayment {
+  probabilityInvoiceDatePayment: number;
+  probabilityInvoiceDatePaymentColor = 0;
+  probInvoiceDatePaymentRangeWeight: number;
+  probInvoiceDatePaymentAlignWeight: number;
+  probInvoiceDatePaymentDateStructureWeight: number;
 }

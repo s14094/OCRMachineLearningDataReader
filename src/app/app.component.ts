@@ -45,7 +45,8 @@ export class AppComponent implements OnInit {
 
   contractorNameColumns: string[] = [];
 
-  datePaymentColumns: string[] = [];
+  datePaymentColumns: string[] = ['probabilityInvoiceDatePayment', 'probInvoiceDatePaymentRangeWeight',
+    'probInvoiceDatePaymentAlignWeight', 'probInvoiceDatePaymentDateStructureWeight'];
 
   paymentMethodColumns: string[] = [];
 
@@ -98,7 +99,9 @@ export class AppComponent implements OnInit {
         bestResultDateCreate: this.appModel.invoiceDateCreate.fieldValue,
         bBestResultDateCreate: this.appModel.invoiceDateCreate.invoiceDateCreate.probabilityInvoiceDateCreate,
         bestResultNip: this.appModel.invoiceNip.fieldValue,
-        bBestResultNip: this.appModel.invoiceNip.invoiceNip.probabilityInvoiceNipContractor
+        bBestResultNip: this.appModel.invoiceNip.invoiceNip.probabilityInvoiceNipContractor,
+        bestResultDatePayment: this.appModel.invoiceDatePayment.fieldValue,
+        bBestResultDatePayment: this.appModel.invoiceDatePayment.invoiceDatePayment.probabilityInvoiceDatePayment
       }
     });
 
@@ -113,6 +116,7 @@ export class AppComponent implements OnInit {
       var highestValueInvoiceNum = 0;
       var highestValueInvoiceDateCreate = 0;
       var highestValueInvoiceNipContractor = 0;
+      var highestValueInvoiceDatePayment = 0;
       for (const model of this.appModel.valueFieldList) {
         if (model.invoiceNumber.probabilityInvoiceNumber > highestValueInvoiceNum) {
           highestValueInvoiceNum = model.invoiceNumber.probabilityInvoiceNumber;
@@ -122,6 +126,9 @@ export class AppComponent implements OnInit {
         }
         if (model.invoiceNip.probabilityInvoiceNipContractor > highestValueInvoiceNipContractor) {
           highestValueInvoiceNipContractor = model.invoiceNip.probabilityInvoiceNipContractor;
+        }
+        if (model.invoiceDatePayment.probabilityInvoiceDatePayment > highestValueInvoiceDatePayment) {
+          highestValueInvoiceDatePayment = model.invoiceDatePayment.probabilityInvoiceDatePayment;
         }
       }
       for (let model of this.appModel.valueFieldList) {
@@ -155,6 +162,16 @@ export class AppComponent implements OnInit {
           model.invoiceNip.probabilityInvoiceNipContractorColor = 0;
         }
 
+        if (model.invoiceDatePayment.probabilityInvoiceDatePayment === highestValueInvoiceDatePayment) {
+          model.invoiceDatePayment.probabilityInvoiceDatePaymentColor = 3;
+        } else if ((model.invoiceDatePayment.probabilityInvoiceDatePayment > (highestValueInvoiceDatePayment - 5)) && (model.invoiceDatePayment.probabilityInvoiceDatePayment < highestValueInvoiceDatePayment)) {
+          model.invoiceDatePayment.probabilityInvoiceDatePaymentColor = 2;
+        } else if ((model.invoiceDatePayment.probabilityInvoiceDatePayment > (highestValueInvoiceDatePayment - 10)) && (model.invoiceDatePayment.probabilityInvoiceDatePayment < (highestValueInvoiceDatePayment - 5))) {
+          model.invoiceDatePayment.probabilityInvoiceDatePaymentColor = 1;
+        } else {
+          model.invoiceDatePayment.probabilityInvoiceDatePaymentColor = 0;
+        }
+
       }
       console.log(this.appModel.valueFieldList.length);
       if (this.appModel != null && this.appModel.valueFieldList.length > 0) {
@@ -182,6 +199,8 @@ export interface DialogData {
   bBestResultDateCreate: string;
   bestResultNip: string;
   bBestResultNip: string;
+  bestResultDatePayment: string;
+  bBestResultDatePayment: string;
 }
 
 @Component({
