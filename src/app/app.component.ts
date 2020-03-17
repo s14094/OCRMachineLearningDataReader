@@ -113,6 +113,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.appService.getData().subscribe(result => {
       this.appModel = result;
+      console.log(result);
       var highestValueInvoiceNum = 0;
       var highestValueInvoiceDateCreate = 0;
       var highestValueInvoiceNipContractor = 0;
