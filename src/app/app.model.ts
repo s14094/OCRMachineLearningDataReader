@@ -41,7 +41,7 @@ export class ValueField {
   invoiceDateCreate: InvoiceDateCreate;
   invoiceNip: InvoiceNip;
   invoiceDatePayment: InvoiceDatePayment;
-  invoiceContractorTown: InvoiceContractorTown;
+  invoiceContractorName: InvoiceContractorName;
 }
 
 export class InvoiceNumber {
@@ -82,7 +82,7 @@ export class InvoiceDatePayment {
   probInvoiceDatePaymentDateStructureWeight: number;
 }
 
-export class InvoiceContractorTown {
+export class InvoiceContractorName {
   probabilityInvoiceContractorTown: number;
   probabilityInvoiceContractorTownColor = 0;
   probabilityInvoiceContractorZip: number;

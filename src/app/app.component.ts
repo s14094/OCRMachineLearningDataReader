@@ -133,20 +133,20 @@ export class AppComponent implements OnInit {
         if (model.invoiceDatePayment.probabilityInvoiceDatePayment > highestValueInvoiceDatePayment) {
           highestValueInvoiceDatePayment = model.invoiceDatePayment.probabilityInvoiceDatePayment;
         }
-        if (model.invoiceContractorTown.probabilityInvoiceContractorTown > highestValueInvoiceContractorTown) {
-          highestValueInvoiceContractorTown = model.invoiceContractorTown.probabilityInvoiceContractorTown;
+        if (model.invoiceContractorName.probabilityInvoiceContractorTown > highestValueInvoiceContractorTown) {
+          highestValueInvoiceContractorTown = model.invoiceContractorName.probabilityInvoiceContractorTown;
         }
       }
       for (let model of this.appModel.valueFieldList) {
 
-        if (model.invoiceContractorTown.probabilityInvoiceContractorTown === highestValueInvoiceContractorTown) {
-          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 3;
-        } else if ((model.invoiceContractorTown.probabilityInvoiceContractorTown > (highestValueInvoiceContractorTown - 5)) && (model.invoiceContractorTown.probabilityInvoiceContractorTown < highestValueInvoiceContractorTown)) {
-          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 2;
-        } else if ((model.invoiceContractorTown.probabilityInvoiceContractorTown > (highestValueInvoiceContractorTown - 10)) && (model.invoiceContractorTown.probabilityInvoiceContractorTown < (highestValueInvoiceContractorTown - 5))) {
-          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 1;
+        if (model.invoiceContractorName.probabilityInvoiceContractorTown === highestValueInvoiceContractorTown) {
+          model.invoiceContractorName.probabilityInvoiceContractorTownColor = 3;
+        } else if ((model.invoiceContractorName.probabilityInvoiceContractorTown > (highestValueInvoiceContractorTown - 5)) && (model.invoiceContractorName.probabilityInvoiceContractorTown < highestValueInvoiceContractorTown)) {
+          model.invoiceContractorName.probabilityInvoiceContractorTownColor = 2;
+        } else if ((model.invoiceContractorName.probabilityInvoiceContractorTown > (highestValueInvoiceContractorTown - 10)) && (model.invoiceContractorName.probabilityInvoiceContractorTown < (highestValueInvoiceContractorTown - 5))) {
+          model.invoiceContractorName.probabilityInvoiceContractorTownColor = 1;
         } else {
-          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 0;
+          model.invoiceContractorName.probabilityInvoiceContractorTownColor = 0;
         }
 
         if (model.invoiceNumber.probabilityInvoiceNumber === highestValueInvoiceNum) {

@@ -359,40 +359,40 @@
     <ng-container matColumnDef="probabilityInvoiceContractorTown">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % contractor town</th>
       <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.invoiceContractorTown.probabilityInvoiceContractorTownColor == 0">
-          <span style="color: #b2b2b2">{{element.invoiceContractorTown.probabilityInvoiceContractorTown}}</span>
+        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 0">
+          <span style="color: #b2b2b2">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
         </ng-container>
-        <ng-container *ngIf="element.invoiceContractorTown.probabilityInvoiceContractorTownColor == 1">
-          <span style="color: #ffff99">{{element.invoiceContractorTown.probabilityInvoiceContractorTown}}</span>
+        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 1">
+          <span style="color: #ffff99">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
         </ng-container>
-        <ng-container *ngIf="element.invoiceContractorTown.probabilityInvoiceContractorTownColor == 2">
-          <span style="color: #9eff8d">{{element.invoiceContractorTown.probabilityInvoiceContractorTown}}</span>
+        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 2">
+          <span style="color: #9eff8d">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
         </ng-container>
-        <ng-container *ngIf="element.invoiceContractorTown.probabilityInvoiceContractorTownColor == 3">
-          <span style="color: #00ff11">{{element.invoiceContractorTown.probabilityInvoiceContractorTown}}</span>
+        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 3">
+          <span style="color: #00ff11">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
         </ng-container>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="probabilityInvoiceContractorZip">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> zip code (max 100%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorTown.probabilityInvoiceContractorZip}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probabilityInvoiceContractorZip}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceContractorTownAlignWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_?%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorTown.probInvoiceContractorTownAlignWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownAlignWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceContractorTownRangeWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_?%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorTown.probInvoiceContractorTownRangeWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownRangeWeight}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="probInvoiceContractorTownStructureWeight">
       <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_?%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorTown.probInvoiceContractorTownStructureWeight}} </td>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownStructureWeight}} </td>
     </ng-container>
 
 
