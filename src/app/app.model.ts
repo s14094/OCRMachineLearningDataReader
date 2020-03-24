@@ -41,6 +41,7 @@ export class ValueField {
   invoiceDateCreate: InvoiceDateCreate;
   invoiceNip: InvoiceNip;
   invoiceDatePayment: InvoiceDatePayment;
+  invoiceContractorTown: InvoiceContractorTown;
 }
 
 export class InvoiceNumber {
@@ -79,4 +80,13 @@ export class InvoiceDatePayment {
   probInvoiceDatePaymentRangeWeight: number;
   probInvoiceDatePaymentAlignWeight: number;
   probInvoiceDatePaymentDateStructureWeight: number;
+}
+
+export class InvoiceContractorTown {
+  probabilityInvoiceContractorTown: number;
+  probabilityInvoiceContractorTownColor = 0;
+  probabilityInvoiceContractorZip: number;
+  probInvoiceContractorTownRangeWeight: number;
+  probInvoiceContractorTownAlignWeight: number;
+  probInvoiceContractorTownStructureWeight: number;
 }

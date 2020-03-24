@@ -43,7 +43,8 @@ export class AppComponent implements OnInit {
     'probInvoiceNipContractorRangeKeyWeight', 'probInvoiceNipContractorAlignWeight', 'probInvoiceNipContractorStructureWeight',
     'probInvoiceNipContractorBlockStructureWeight'];
 
-  contractorNameColumns: string[] = [];
+  contractorNameColumns: string[] = ['probabilityInvoiceContractorTown', 'probabilityInvoiceContractorZip', 'probInvoiceContractorTownRangeWeight',
+    'probInvoiceContractorTownAlignWeight', 'probInvoiceContractorTownStructureWeight'];
 
   datePaymentColumns: string[] = ['probabilityInvoiceDatePayment', 'probInvoiceDatePaymentRangeWeight',
     'probInvoiceDatePaymentAlignWeight', 'probInvoiceDatePaymentDateStructureWeight'];
@@ -118,6 +119,7 @@ export class AppComponent implements OnInit {
       var highestValueInvoiceDateCreate = 0;
       var highestValueInvoiceNipContractor = 0;
       var highestValueInvoiceDatePayment = 0;
+      var highestValueInvoiceContractorTown = 0;
       for (const model of this.appModel.valueFieldList) {
         if (model.invoiceNumber.probabilityInvoiceNumber > highestValueInvoiceNum) {
           highestValueInvoiceNum = model.invoiceNumber.probabilityInvoiceNumber;
@@ -131,8 +133,22 @@ export class AppComponent implements OnInit {
         if (model.invoiceDatePayment.probabilityInvoiceDatePayment > highestValueInvoiceDatePayment) {
           highestValueInvoiceDatePayment = model.invoiceDatePayment.probabilityInvoiceDatePayment;
         }
+        if (model.invoiceContractorTown.probabilityInvoiceContractorTown > highestValueInvoiceContractorTown) {
+          highestValueInvoiceContractorTown = model.invoiceContractorTown.probabilityInvoiceContractorTown;
+        }
       }
       for (let model of this.appModel.valueFieldList) {
+
+        if (model.invoiceContractorTown.probabilityInvoiceContractorTown === highestValueInvoiceContractorTown) {
+          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 3;
+        } else if ((model.invoiceContractorTown.probabilityInvoiceContractorTown > (highestValueInvoiceContractorTown - 5)) && (model.invoiceContractorTown.probabilityInvoiceContractorTown < highestValueInvoiceContractorTown)) {
+          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 2;
+        } else if ((model.invoiceContractorTown.probabilityInvoiceContractorTown > (highestValueInvoiceContractorTown - 10)) && (model.invoiceContractorTown.probabilityInvoiceContractorTown < (highestValueInvoiceContractorTown - 5))) {
+          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 1;
+        } else {
+          model.invoiceContractorTown.probabilityInvoiceContractorTownColor = 0;
+        }
+
         if (model.invoiceNumber.probabilityInvoiceNumber === highestValueInvoiceNum) {
           model.invoiceNumber.probabilityInvoiceNumberColor = 3;
         } else if ((model.invoiceNumber.probabilityInvoiceNumber > (highestValueInvoiceNum - 5)) && (model.invoiceNumber.probabilityInvoiceNumber < highestValueInvoiceNum)) {
