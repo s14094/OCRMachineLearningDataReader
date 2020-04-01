@@ -9,6 +9,6 @@ export class AppService {
   }
 
   getData() {
-    return this.http.get<AppModel>('http://localhost:8080/xml/');
+    return this.http.get<AppModel>('http://localhost:8080/ocrdataconverter/xml/');
   }
 }
