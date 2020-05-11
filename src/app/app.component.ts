@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     'pageResolution'];
 
   invoiceNumberColumns: string[] = ['probabilityInvoiceNumber', 'probInvoiceNumPositionWeight', 'probInvoiceNumKeyDistanceWeight',
-    'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight'];
+    'probInvoiceNumStructureWeight', 'probInvoiceLineStructureWeight', 'probInvoiceBlockStructureWeight'];
 
   dateCreateColumns: string[] = ['probabilityInvoiceDateCreate', 'probInvoiceDateCreatePositionWeight', 'probInvoiceDateCreateAlignWeight',
     'probInvoiceDateCreateRangeWeight', 'probInvoiceDateCreateDateStructureWeight'];

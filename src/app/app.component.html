@@ -225,8 +225,13 @@
     </ng-container>
 
     <ng-container matColumnDef="probInvoiceLineStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % line stuct (max_20%)</th>
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % line stuct (max_10%)</th>
       <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceLineStructureWeight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="probInvoiceBlockStructureWeight">
+      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block stuct (max_10%)</th>
+      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceBlockStructureWeight}} </td>
     </ng-container>
 
     <ng-container matColumnDef="probabilityInvoiceDateCreate">

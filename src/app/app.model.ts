@@ -51,6 +51,7 @@ export class InvoiceNumber {
   probInvoiceNumKeyDistanceWeight: number;
   probInvoiceNumStructureWeight: number;
   probInvoiceLineStructureWeight: number;
+  probInvoiceBlockStructureWeight: number;
 }
 
 export class InvoiceDateCreate {
