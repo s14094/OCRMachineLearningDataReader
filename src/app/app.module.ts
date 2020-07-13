@@ -32,16 +32,22 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatChipsModule} from '@angular/material/chips';
-import {AppComponent, ResultDialog} from './app.component';
+import {AppComponent} from './app.component';
 import {AppService} from './app.service';
 import {HttpClientModule} from '@angular/common/http';
+import {OutputComponent} from './output/output.component';
+import {routing} from './app-routing.module';
+import { InputComponent } from './input/input.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultDialog
+    OutputComponent,
+    InputComponent
   ],
   imports: [
+    routing,
     BrowserModule,
     HttpClientModule,
     BrowserModule,
@@ -78,12 +84,12 @@ import {HttpClientModule} from '@angular/common/http';
     MatTooltipModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatRadioModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent],
   entryComponents: [
-    ResultDialog
   ]
 })
 export class AppModule {
