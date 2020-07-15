@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {AppModel} from './app.model';
+import {AppModel, DisplayElement, FinalDoc, HighlightElement, MainModel, SimpleModel} from './app.model';
 import {AppService} from '../app.service';
-import {ActivatedRoute, Router} from "@angular/router";
-
+import {ActivatedRoute, Router} from '@angular/router';
+import {XmlToJsonService} from '../XmlToJsonService.service';
+import * as xml2js from 'xml2js';
 
 @Component({
   selector: 'app-output',
@@ -13,8 +14,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class OutputComponent implements OnInit {
 
   appModel: AppModel = new AppModel();
+  mainModel: MainModel = new MainModel();
+  simpleModel: SimpleModel = new SimpleModel();
   dataSource = new MatTableDataSource();
-
+  displayList: DisplayElement[] = [];
   bBasicData = true;
   bInvoiceNum = false;
   bDateCreate = false;
@@ -23,6 +26,10 @@ export class OutputComponent implements OnInit {
   bDatePayment = false;
   bPaymentMethod = false;
   bPaymentTerms = false;
+  invoiceNumber = new HighlightElement();
+  invoiceDateCreate = new HighlightElement();
+  invoiceNip = new HighlightElement();
+  invoiceDatePayment = new HighlightElement();
 
 
   displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
@@ -65,9 +72,9 @@ export class OutputComponent implements OnInit {
     private appService: AppService,
     private router: Router,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private xmlToJsonService: XmlToJsonService
   ) {
-    console.log('new component constructor');
   }
 
   toggleCol(event) {
@@ -98,12 +105,81 @@ export class OutputComponent implements OnInit {
     }
   }
 
+
   ngOnInit() {
-    console.log('new component init');
 
-    this.appModel = JSON.parse(localStorage.getItem('dataSource'));
+    this.mainModel = JSON.parse(localStorage.getItem('dataSource'));
+    this.mainModel.input = JSON.parse(localStorage.getItem('dataInput'));
 
-    console.log(this.appModel);
+    this.appModel = this.mainModel.finalResult;
+    this.simpleModel = this.mainModel.finalResultSimple;
+
+    let doc = new FinalDoc();
+
+    xml2js.parseString(this.mainModel.input, {explicitArray: true, mergeAttrs: true}, (error, result) => {
+      if (error) {
+        console.log('error', error);
+      } else {
+        doc = result;
+        for (const p of doc.document.page) {
+          for (const b of p.block) {
+            if (b.blockType[0] === 'Table') {
+              for (const r of b.row) {
+                for (const c of r.cell) {
+                  for (const par of c.text[0].par) {
+                    let x = new DisplayElement();
+                    if (par.line !== undefined && par.line[0].formatting[0]._ !== undefined) {
+                      x.posL = +par.line[0].l[0] / 2;
+                      x.posT = +par.line[0].t[0] / 2 + 100;
+                      let temp = '';
+                      for (let str of par.line[0].formatting[0]._) {
+                        temp += str;
+                      }
+                      x.value = temp;
+                      this.displayList.push(x);
+                    }
+                  }
+                }
+              }
+            } else if (b.blockType[0] === 'Text') {
+              for (const par of b.text[0].par) {
+                let x = new DisplayElement();
+                if (par.line !== undefined && par.line[0].formatting[0]._ !== undefined) {
+                  x.posL = +par.line[0].l[0] / 2;
+                  x.posT = +par.line[0].t[0] / 2 + 100;
+                  let temp = '';
+                  for (let str of par.line[0].formatting[0]._) {
+                    temp = temp + str;
+                  }
+                  x.value = temp;
+                  this.displayList.push(x);
+                }
+              }
+            }
+          }
+        }
+      }
+    });
+
+    this.invoiceNumber.posL = this.appModel.invoiceNumber.lineLeft / 2;
+    this.invoiceNumber.posT = this.appModel.invoiceNumber.lineTop / 2 + 100;
+    this.invoiceNumber.value = this.appModel.invoiceNumber.fieldValue;
+    this.invoiceNumber.perc = this.appModel.invoiceNumber.invoiceNumber.probabilityInvoiceNumber.toString();
+
+    this.invoiceDateCreate.posL = this.appModel.invoiceDateCreate.lineLeft / 2;
+    this.invoiceDateCreate.posT = this.appModel.invoiceDateCreate.lineTop / 2 + 100;
+    this.invoiceDateCreate.value = this.appModel.invoiceDateCreate.fieldValue;
+    this.invoiceDateCreate.perc = this.appModel.invoiceDateCreate.invoiceDateCreate.probabilityInvoiceDateCreate.toString();
+
+    this.invoiceNip.posL = this.appModel.invoiceNip.lineLeft / 2;
+    this.invoiceNip.posT = this.appModel.invoiceNip.lineTop / 2 + 100;
+    this.invoiceNip.value = this.appModel.invoiceNip.fieldValue;
+    this.invoiceNip.perc = this.appModel.invoiceNip.invoiceNip.probabilityInvoiceNipContractor.toString();
+
+    this.invoiceDatePayment.posL = this.appModel.invoiceDatePayment.lineLeft / 2;
+    this.invoiceDatePayment.posT = this.appModel.invoiceDatePayment.lineTop / 2 + 100;
+    this.invoiceDatePayment.value = this.appModel.invoiceDatePayment.fieldValue;
+    this.invoiceDatePayment.perc = this.appModel.invoiceDatePayment.invoiceDatePayment.probabilityInvoiceDatePayment.toString();
 
 
     let highestValueInvoiceNum = 0;
@@ -182,10 +258,7 @@ export class OutputComponent implements OnInit {
       }
 
     }
-    console.log(this.appModel.valueFieldList.length);
-    if (this.appModel != null && this.appModel.valueFieldList.length > 0) {
-      console.log(this.appModel.valueFieldList[0]);
-    }
+
     this.dataSource = new MatTableDataSource(this.appModel.valueFieldList);
 
 

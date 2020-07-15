@@ -1,9 +1,117 @@
+export class DisplayElement {
+  posL: number;
+  posT: number;
+  value: string;
+}
+
+export class HighlightElement {
+  posL: number;
+  posT: number;
+  value: string;
+  perc: string;
+}
+
+export class FinalDoc {
+  document: Document;
+}
+
+export class Document {
+
+  languages: string;
+  producer: string;
+  version: string;
+  page: Page[];
+
+}
+
+export class Page {
+  height: string;
+  originalCoords: string;
+  resolution: string;
+  width: string;
+  block: Block[];
+}
+
+export class Block {
+  b: string;
+  l: string;
+  r: string;
+  t: string;
+  blockType: string;
+  blockName: string;
+  text: Text;
+  row: Row[];
+}
+
+export class Row {
+  cell: Cell[];
+}
+
+export class Cell {
+  height: string;
+  width: string;
+  text: Text;
+}
+
+export class Text {
+  par: Par[];
+}
+
+export class Par {
+  lineSpacing: string;
+  line: Line;
+}
+
+export class Line {
+  b: string;
+  l: string;
+  r: string;
+  t: string;
+  formatting: Formatting;
+}
+
+export class Formatting {
+  lang: string;
+  _: string;
+}
+
+
 export class AppModel {
   valueFieldList: ValueField[];
   invoiceNumber: ValueField;
   invoiceDateCreate: ValueField;
   invoiceNip: ValueField;
   invoiceDatePayment: ValueField;
+}
+
+export class MainModel {
+  finalResult: AppModel;
+  finalResultSimple: SimpleModel;
+  input: string;
+}
+
+export class SimpleModel {
+  sInvoiceNumber: string;
+  sDateCreate: string;
+  sNip: string;
+  sPaymentTerm: string;
+  sDatePayment: string;
+  sCurrencyKey: string;
+  sCurrencyValue: string;
+  sProforma: string;
+  sPaid: string;
+  sContractorName: string;
+  bContractorNameExtracted: boolean;
+  sDocumentKind: string;
+  sPaymentForm: string;
+  sAccountNumber: string;
+  bAccountNumberExtracted: string;
+  sGross: string;
+  sNet: string;
+  sVat: string;
+  sZipCode: string;
+  sProjectNumber: string;
+  sProjectName: string;
 }
 
 export class ValueField {

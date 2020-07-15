@@ -37,8 +37,9 @@ import {AppService} from './app.service';
 import {HttpClientModule} from '@angular/common/http';
 import {OutputComponent} from './output/output.component';
 import {routing} from './app-routing.module';
-import { InputComponent } from './input/input.component';
-import {MatRadioModule} from "@angular/material/radio";
+import {InputComponent} from './input/input.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {XmlToJsonService} from './XmlToJsonService.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatRadioModule} from "@angular/material/radio";
   ],
   imports: [
     routing,
+
     BrowserModule,
     HttpClientModule,
     BrowserModule,
@@ -87,10 +89,12 @@ import {MatRadioModule} from "@angular/material/radio";
     MatSortModule,
     MatRadioModule
   ],
-  providers: [AppService],
+  providers: [
+    AppService,
+    XmlToJsonService
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [
-  ]
+  entryComponents: []
 })
 export class AppModule {
 }

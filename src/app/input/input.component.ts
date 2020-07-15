@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AppService} from "../app.service";
-import {AppModel} from "../output/app.model";
+import {AppModel, MainModel} from "../output/app.model";
 
 export class InputModel {
   body: string;
@@ -17,7 +17,7 @@ export class InputModel {
 })
 export class InputComponent implements OnInit {
 
-  appModel: AppModel = new AppModel();
+  mainModel: MainModel = new MainModel();
   formGroup: FormGroup;
   model: InputModel = new InputModel();
   selectedNumberOfInputs: number;
@@ -39,15 +39,15 @@ export class InputComponent implements OnInit {
 
   getData() {
     localStorage.removeItem('dataSource');
+    localStorage.removeItem('dataInput');
     let tempS = 'PERN';
     if (this.selectedNumberOfInputs === 2) {
       tempS = 'ELBUD';
     }
-    console.log('wchodzi');
     this.appService.checkData(this.model.body, tempS).subscribe(result => {
-      this.appModel = result.body;
-      console.log(this.appModel);
-      localStorage.setItem('dataSource', JSON.stringify(this.appModel));
+      this.mainModel = result.body;
+      localStorage.setItem('dataSource', JSON.stringify(this.mainModel));
+      localStorage.setItem('dataInput', JSON.stringify(this.model.body));
     }, error => {
 
     }, () => {

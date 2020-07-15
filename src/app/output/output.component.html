@@ -1,424 +1,721 @@
-<div class="example-container" style="width: 99vw; height: 100%;">
+<mat-horizontal-stepper #stepper>
+  <mat-step label="Dane z ekstrakcji">
+
+    <div style="width: 100%; background: #424242; height: 100%;">
+      <mat-list role="list" style="width: 800px; margin: auto;">
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sInvoiceNumber:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sInvoiceNumber}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sDateCreate:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sDateCreate}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sNip:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sNip}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sPaymentTerm:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sPaymentTerm}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sDatePayment:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sDatePayment}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sCurrencyKey:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sCurrencyKey}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sCurrencyValue:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sCurrencyValue}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sProforma:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sProforma}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sPaid:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sPaid}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sContractorName:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sContractorName}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            bContractorNameExtracted:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.bContractorNameExtracted}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sDocumentKind:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sDocumentKind}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sPaymentForm:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sPaymentForm}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sAccountNumber:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sAccountNumber}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            bAccountNumberExtracted:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.bAccountNumberExtracted}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sGross:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sGross}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sNet:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sNet}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sVat:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sVat}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sZipCode:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sZipCode}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sProjectNumber:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sProjectNumber}}
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem" style="display: inline-flex; width: 100%;">
+          <div style="width: 50%">
+            sProjectName:
+          </div>
+          <div style="width: 50%">
+            {{simpleModel.sProjectName}}
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-step>
+  <mat-step label="Dane szczegółowe">
 
 
-  <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100vw; margin-bottom: 50px;" matSort>
+    <div class="example-container" style="width: 99vw; height: 100%;">
 
-    <ng-container matColumnDef="fieldValue" sticky>
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 245px;"> fieldValue</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.fieldValue}} </td>
-    </ng-container>
+      <table [dataSource]="dataSource" class="table-row" mat-table style="width: 100vw; margin-bottom: 50px;" matSort>
 
-    <ng-container matColumnDef="parId">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> par Id</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.parId % 2 == 0">
-          <span style="color: #c9ff9b">{{element.parId}}</span>
+        <ng-container matColumnDef="fieldValue" sticky>
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 245px;"> fieldValue</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.fieldValue}} </td>
         </ng-container>
-        <ng-container *ngIf="element.parId % 2 != 0">
-          <span style="color: #aae5ff">{{element.parId}}</span>
+
+        <ng-container matColumnDef="parId">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> par Id</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.parId % 2 == 0">
+              <span style="color: #c9ff9b">{{element.parId}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.parId % 2 != 0">
+              <span style="color: #aae5ff">{{element.parId}}</span>
+            </ng-container>
+          </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="pageId">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> page Id</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.pageId % 2 == 0">
-          <span style="color: #c9ff9b">{{element.pageId}}</span>
+        <ng-container matColumnDef="pageId">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> page Id</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.pageId % 2 == 0">
+              <span style="color: #c9ff9b">{{element.pageId}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.pageId % 2 != 0">
+              <span style="color: #aae5ff">{{element.pageId}}</span>
+            </ng-container>
+          </td>
         </ng-container>
-        <ng-container *ngIf="element.pageId % 2 != 0">
-          <span style="color: #aae5ff">{{element.pageId}}</span>
+
+        <ng-container matColumnDef="blockId">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> block Id</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.blockId % 2 == 0">
+              <span style="color: #c9ff9b">{{element.blockId}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.blockId % 2 != 0">
+              <span style="color: #aae5ff">{{element.blockId}}</span>
+            </ng-container>
+          </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="blockId">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 30px;"> block Id</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.blockId % 2 == 0">
-          <span style="color: #c9ff9b">{{element.blockId}}</span>
+        <ng-container matColumnDef="lang">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> lang</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.lang == 'EnglishUnitedStates'">
+              Eng
+            </ng-container>
+            <ng-container *ngIf="!element.lang == 'EnglishUnitedStates'">
+              {{element.lang}}
+            </ng-container>
+          </td>
         </ng-container>
-        <ng-container *ngIf="element.blockId % 2 != 0">
-          <span style="color: #aae5ff">{{element.blockId}}</span>
+
+        <ng-container matColumnDef="lineBaseline">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> baseline</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>{{element.lineBaseline}}</td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="lang">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> lang</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.lang == 'EnglishUnitedStates'">
-          Eng
+        <ng-container matColumnDef="lineLeft">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line ←</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineLeft}} </td>
         </ng-container>
-        <ng-container *ngIf="!element.lang == 'EnglishUnitedStates'">
-          {{element.lang}}
+
+        <ng-container matColumnDef="lineRight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line →</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineRight}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="lineBaseline">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> baseline</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>{{element.lineBaseline}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineLeft">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line ←</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineLeft}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineRight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line →</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineRight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineBottom">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line ↓</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineBottom}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineTop">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line ↑</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineTop}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineCenterX">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line Cent X</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterX}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lineCenterY">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line Cent Y</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterY}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="parAlign">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> align</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parAlign}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="parStartIndent">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Start</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parStartIndent}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="parLineSpacing">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Space</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parLineSpacing}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="cellWidth">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> cell ↔</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.blockType == 'Table'">
-          {{element.cellWidth}}
+        <ng-container matColumnDef="lineBottom">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line ↓</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineBottom}} </td>
         </ng-container>
-        <ng-container *ngIf="!element.blockType == 'Table'">
-          -
+
+        <ng-container matColumnDef="lineTop">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line ↑</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineTop}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="cellHeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> cell ↕</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.blockType == 'Table'">
-          {{element.cellHeight}}
+        <ng-container matColumnDef="lineCenterX">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line Cent X</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterX}} </td>
         </ng-container>
-        <ng-container *ngIf="!element.blockType == 'Table'">
-          -
+
+        <ng-container matColumnDef="lineCenterY">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> line Cent Y</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.lineCenterY}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="blockType">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 60px;"> typ</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockType}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockName">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> name</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockName}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockLeft">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ←</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockLeft}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockRight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block →</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockRight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockTop">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↑</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockTop}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockBottom">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↓</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockBottom}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockCenterCoords">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block Cent</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockCenterCoords}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockWidth">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↔</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockWidth}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="blockHeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↕</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockHeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="pageWidth">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par ↔</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageWidth}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="pageHeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par ↕</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageHeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="pageResolution">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Res</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageResolution}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="probabilityInvoiceNumber">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % invoice</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 0">
-          <span style="color: #b2b2b2">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+        <ng-container matColumnDef="parAlign">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> align</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parAlign}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 1">
-          <span style="color: #ffff99">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+
+        <ng-container matColumnDef="parStartIndent">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Start</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parStartIndent}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 2">
-          <span style="color: #9eff8d">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+
+        <ng-container matColumnDef="parLineSpacing">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Space</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.parLineSpacing}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 3">
-          <span style="color: #00ff11">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+
+        <ng-container matColumnDef="cellWidth">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> cell ↔</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.blockType == 'Table'">
+              {{element.cellWidth}}
+            </ng-container>
+            <ng-container *ngIf="!element.blockType == 'Table'">
+              -
+            </ng-container>
+          </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="probInvoiceNumPositionWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceNumPositionWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceNumKeyDistanceWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % key dist (max_20%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceNumKeyDistanceWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceNumStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % word stuct (max_50%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceNumStructureWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceLineStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % line stuct (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceLineStructureWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceBlockStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block stuct (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNumber.probInvoiceBlockStructureWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probabilityInvoiceDateCreate">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date create</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 0">
-          <span style="color: #b2b2b2">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+        <ng-container matColumnDef="cellHeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> cell ↕</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.blockType == 'Table'">
+              {{element.cellHeight}}
+            </ng-container>
+            <ng-container *ngIf="!element.blockType == 'Table'">
+              -
+            </ng-container>
+          </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 1">
-          <span style="color: #ffff99">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+
+        <ng-container matColumnDef="blockType">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 60px;"> typ</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockType}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 2">
-          <span style="color: #9eff8d">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+
+        <ng-container matColumnDef="blockName">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> name</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockName}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 3">
-          <span style="color: #00ff11">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+
+        <ng-container matColumnDef="blockLeft">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ←</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockLeft}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="probInvoiceDateCreatePositionWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreatePositionWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceDateCreateAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateAlignWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceDateCreateRangeWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateRangeWeight}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="probInvoiceDateCreateDateStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateDateStructureWeight}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="probabilityInvoiceNipContractor">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % nip contractor</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 0">
-          <span style="color: #b2b2b2">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+        <ng-container matColumnDef="blockRight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block →</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockRight}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 1">
-          <span style="color: #ffff99">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+
+        <ng-container matColumnDef="blockTop">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↑</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockTop}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 2">
-          <span style="color: #9eff8d">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+
+        <ng-container matColumnDef="blockBottom">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↓</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockBottom}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 3">
-          <span style="color: #00ff11">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+
+        <ng-container matColumnDef="blockCenterCoords">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block Cent</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockCenterCoords}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="probInvoiceNipContractorPositionWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorPositionWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceNipContractorAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorAlignWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceNipContractorRangeNipWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range nip (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorRangeNipWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceNipContractorRangeKeyWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range key (max_10%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorRangeKeyWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceNipContractorBlockStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block structure (max_20%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorBlockStructureWeight}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="probInvoiceNipContractorStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_40%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceNip.probInvoiceNipContractorStructureWeight}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="probabilityInvoiceDatePayment">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date payment</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 0">
-          <span style="color: #b2b2b2">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+        <ng-container matColumnDef="blockWidth">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↔</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockWidth}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 1">
-          <span style="color: #ffff99">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+
+        <ng-container matColumnDef="blockHeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> block ↕</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.blockHeight}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 2">
-          <span style="color: #9eff8d">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+
+        <ng-container matColumnDef="pageWidth">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par ↔</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageWidth}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 3">
-          <span style="color: #00ff11">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+
+        <ng-container matColumnDef="pageHeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par ↕</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageHeight}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-
-    <ng-container matColumnDef="probInvoiceDatePaymentAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_25%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentAlignWeight}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="probInvoiceDatePaymentRangeWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_15%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentRangeWeight}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="probInvoiceDatePaymentDateStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_50%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentDateStructureWeight}} </td>
-    </ng-container>
-
-
-
-    <ng-container matColumnDef="probabilityInvoiceContractorTown">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % contractor town</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell>
-        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 0">
-          <span style="color: #b2b2b2">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+        <ng-container matColumnDef="pageResolution">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;"> par Res</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell> {{element.pageResolution}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 1">
-          <span style="color: #ffff99">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+
+
+        <ng-container matColumnDef="probabilityInvoiceNumber">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % invoice</th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 0">
+              <span style="color: #b2b2b2">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 1">
+              <span style="color: #ffff99">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 2">
+              <span style="color: #9eff8d">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceNumber.probabilityInvoiceNumberColor == 3">
+              <span style="color: #00ff11">{{element.invoiceNumber.probabilityInvoiceNumber}}</span>
+            </ng-container>
+          </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 2">
-          <span style="color: #9eff8d">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+
+        <ng-container matColumnDef="probInvoiceNumPositionWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNumber.probInvoiceNumPositionWeight}} </td>
         </ng-container>
-        <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 3">
-          <span style="color: #00ff11">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+
+        <ng-container matColumnDef="probInvoiceNumKeyDistanceWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % key dist
+            (max_20%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNumber.probInvoiceNumKeyDistanceWeight}} </td>
         </ng-container>
-      </td>
-    </ng-container>
 
-    <ng-container matColumnDef="probabilityInvoiceContractorZip">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> zip code (max 100%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probabilityInvoiceContractorZip}} </td>
-    </ng-container>
+        <ng-container matColumnDef="probInvoiceNumStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % word stuct
+            (max_50%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNumber.probInvoiceNumStructureWeight}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="probInvoiceContractorTownAlignWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align (max_?%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownAlignWeight}} </td>
-    </ng-container>
+        <ng-container matColumnDef="probInvoiceLineStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % line stuct
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNumber.probInvoiceLineStructureWeight}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="probInvoiceContractorTownRangeWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range (max_?%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownRangeWeight}} </td>
-    </ng-container>
+        <ng-container matColumnDef="probInvoiceBlockStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block stuct
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNumber.probInvoiceBlockStructureWeight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probabilityInvoiceDateCreate">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date create
+          </th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 0">
+              <span style="color: #b2b2b2">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 1">
+              <span style="color: #ffff99">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 2">
+              <span style="color: #9eff8d">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceDateCreate.probabilityInvoiceDateCreateColor == 3">
+              <span style="color: #00ff11">{{element.invoiceDateCreate.probabilityInvoiceDateCreate}}</span>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceDateCreatePositionWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreatePositionWeight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceDateCreateAlignWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align
+            (max_25%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateAlignWeight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceDateCreateRangeWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range
+            (max_15%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateRangeWeight}} </td>
+        </ng-container>
 
 
-    <ng-container matColumnDef="probInvoiceContractorTownStructureWeight">
-      <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure (max_?%)</th>
-      <td *matCellDef="let element" class="custom-td" mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownStructureWeight}} </td>
-    </ng-container>
+        <ng-container matColumnDef="probInvoiceDateCreateDateStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure
+            (max_50%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDateCreate.probInvoiceDateCreateDateStructureWeight}} </td>
+        </ng-container>
 
 
-    <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
-  </table>
+        <ng-container matColumnDef="probabilityInvoiceNipContractor">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % nip
+            contractor
+          </th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 0">
+              <span style="color: #b2b2b2">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 1">
+              <span style="color: #ffff99">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 2">
+              <span style="color: #9eff8d">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceNip.probabilityInvoiceNipContractorColor == 3">
+              <span style="color: #00ff11">{{element.invoiceNip.probabilityInvoiceNipContractor}}</span>
+            </ng-container>
+          </td>
+        </ng-container>
 
-  <mat-paginator [pageSizeOptions]="[100, 500, 1000, 5000]" class="mat-paginator-sticky" color="accent"></mat-paginator>
+        <ng-container matColumnDef="probInvoiceNipContractorPositionWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % position
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNip.probInvoiceNipContractorPositionWeight}} </td>
+        </ng-container>
 
-  <mat-form-field class="mat-filter-sticky" color="accent">
-    <mat-label>Search</mat-label>
-    <input (keyup)="applyFilter($event)" matInput placeholder="" color="accent">
-  </mat-form-field>
+        <ng-container matColumnDef="probInvoiceNipContractorAlignWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNip.probInvoiceNipContractorAlignWeight}} </td>
+        </ng-container>
 
-  <div class="mat-columns-sticky" color="accent">
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bBasicData">Dane podstawowe</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bInvoiceNum">Numer faktury</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDateCreate">Data wystawienia</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP">NIP Kontrahenta</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName">Nazwa kontrahenta</mat-checkbox>
-    <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment">Termin płatności</mat-checkbox>
-  </div>
+        <ng-container matColumnDef="probInvoiceNipContractorRangeNipWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range nip
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNip.probInvoiceNipContractorRangeNipWeight}} </td>
+        </ng-container>
 
-</div>
+        <ng-container matColumnDef="probInvoiceNipContractorRangeKeyWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range key
+            (max_10%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNip.probInvoiceNipContractorRangeKeyWeight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceNipContractorBlockStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % block
+            structure (max_20%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNip.probInvoiceNipContractorBlockStructureWeight}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="probInvoiceNipContractorStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure
+            (max_40%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceNip.probInvoiceNipContractorStructureWeight}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="probabilityInvoiceDatePayment">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % date payment
+          </th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 0">
+              <span style="color: #b2b2b2">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 1">
+              <span style="color: #ffff99">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 2">
+              <span style="color: #9eff8d">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceDatePayment.probabilityInvoiceDatePaymentColor == 3">
+              <span style="color: #00ff11">{{element.invoiceDatePayment.probabilityInvoiceDatePayment}}</span>
+            </ng-container>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="probInvoiceDatePaymentAlignWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align
+            (max_25%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentAlignWeight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceDatePaymentRangeWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range
+            (max_15%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentRangeWeight}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="probInvoiceDatePaymentDateStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure
+            (max_50%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceDatePayment.probInvoiceDatePaymentDateStructureWeight}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="probabilityInvoiceContractorTown">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 80px;" mat-sort-header> % contractor
+            town
+          </th>
+          <td *matCellDef="let element" class="custom-td" mat-cell>
+            <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 0">
+              <span style="color: #b2b2b2">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 1">
+              <span style="color: #ffff99">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 2">
+              <span style="color: #9eff8d">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+            </ng-container>
+            <ng-container *ngIf="element.invoiceContractorName.probabilityInvoiceContractorTownColor == 3">
+              <span style="color: #00ff11">{{element.invoiceContractorName.probabilityInvoiceContractorTown}}</span>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probabilityInvoiceContractorZip">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> zip code (max
+            100%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceContractorName.probabilityInvoiceContractorZip}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceContractorTownAlignWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % align
+            (max_?%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownAlignWeight}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="probInvoiceContractorTownRangeWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % range
+            (max_?%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownRangeWeight}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="probInvoiceContractorTownStructureWeight">
+          <th *matHeaderCellDef class="custom-th" mat-header-cell style="width: 45px;" mat-sort-header> % structure
+            (max_?%)
+          </th>
+          <td *matCellDef="let element" class="custom-td"
+              mat-cell> {{element.invoiceContractorName.probInvoiceContractorTownStructureWeight}} </td>
+        </ng-container>
+
+
+        <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" class="table-row" mat-row></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[100, 500, 1000, 5000]" class="mat-paginator-sticky"
+                     color="accent"></mat-paginator>
+
+      <mat-form-field class="mat-filter-sticky" color="accent">
+        <mat-label>Search</mat-label>
+        <input (keyup)="applyFilter($event)" matInput placeholder="" color="accent">
+      </mat-form-field>
+
+      <div class="mat-columns-sticky" color="accent">
+        <div style="width: 50%;">
+          <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bBasicData">Dane podstawowe</mat-checkbox>
+          <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bInvoiceNum">Numer faktury</mat-checkbox>
+          <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDateCreate">Data wystawienia</mat-checkbox>
+        </div>
+        <div style="width: 50%;">
+          <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bNIP">NIP Kontrahenta</mat-checkbox>
+          <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bContractorName">Nazwa kontrahenta</mat-checkbox>
+          <mat-checkbox (change)="toggleCol($event)" [(ngModel)]="bDatePayment">Termin płatności</mat-checkbox>
+        </div>
+      </div>
+
+    </div>
+
+
+  </mat-step>
+  <mat-step label="Wizualizacja" style="background: white;">
+    <div style="width: 100%; background: #ffffff; height: 90vh;">
+
+      <div [style.left.px]="item.posL" [style.top.px]="item.posT" *ngFor="let item of displayList"
+           style="position: absolute; font-size: 13px">
+        <b style="position: sticky;">{{item.value}}</b>
+      </div>
+
+
+      <button [style.left.px]="invoiceNumber.posL" [style.top.px]="invoiceNumber.posT" matBadge="1"
+              matTooltip="InvoiceNumber - {{invoiceNumber.value}} - {{invoiceNumber.perc}}%"
+              matTooltipClass="example-tooltip-red"
+           style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNumber.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceDateCreate.posL" [style.top.px]="invoiceDateCreate.posT" matBadge="2"
+              matTooltip="DateCreate - {{invoiceDateCreate.value}} - {{invoiceDateCreate.perc}}%"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceDateCreate.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceNip.posL" [style.top.px]="invoiceNip.posT" matBadge="3"
+              matTooltip="Nip - {{invoiceNip.value}} - {{invoiceNip.perc}}%"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNip.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceDatePayment.posL" [style.top.px]="invoiceDatePayment.posT" matBadge="4"
+              matTooltip="DatePayment - {{invoiceDatePayment.value}} - {{invoiceDatePayment.perc}}%"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceDatePayment.value}}</b>
+      </button>
+
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,15 +1,15 @@
-.custom-th{
+.custom-th {
   font-size: 10px;
   font-family: monospace;
   color: #69F0AE;
 }
 
-.custom-td{
+.custom-td {
   font-size: 11px;
   font-family: monospace;
 }
 
-.custom-td-odd{
+.custom-td-odd {
   font-size: 11px;
   font-family: monospace;
   color: green;
@@ -20,9 +20,9 @@
 }
 
 .example-container {
-  /*height: 400px;*/
-  overflow: auto;
-  /*width: 600px;*/
+  height: 400px;
+  /*overflow: scroll;*/
+  width: 600px;
 }
 
 tr.table-row:hover {
@@ -31,6 +31,12 @@ tr.table-row:hover {
 
 th.table-header:hover {
   background: #777;
+}
+
+::ng-deep .mat-horizontal-content-container {
+  height: 90vh;
+  overflow: auto !important;
+  padding: 0 !important;
 }
 
 
@@ -43,7 +49,7 @@ th.table-header:hover {
 
 .mat-cell {
   text-align: center;
-  justify-content:center;
+  justify-content: center;
 }
 
 .mat-paginator-sticky {
@@ -58,7 +64,7 @@ th.table-header:hover {
 .mat-filter-sticky {
   bottom: 0px;
   left: 450px;
-  background: #424242;
+  background: white;
   padding-left: 10px;
   width: 400px;
   position: absolute;
@@ -69,15 +75,26 @@ th.table-header:hover {
 }
 
 .mat-columns-sticky {
-  bottom: 0px;
+  bottom: 9px;
   color: white;
-  right: 0px;
+  right: 25px;
   background: #424242;
   padding-left: 10px;
-  width: 200px;
+  width: 400px;
+  display: inline-flex;
   position: absolute;
   z-index: 10;
   border-top: 2px solid white;
   border-right: 2px solid white;
   border-left: 1px solid white;
+}
+
+::ng-deep .mat-list-item-content {
+  width: 100% !important;
+  border: solid 1px #69f0ae;
+}
+
+::ng-deep .example-tooltip-red {
+  background: #b71c1c;
+  font-size: 16px;
 }
