@@ -82,6 +82,11 @@ export class AppModel {
   invoiceDateCreate: ValueField;
   invoiceNip: ValueField;
   invoiceDatePayment: ValueField;
+  invoiceZipCode: ValueField;
+  invoiceAccountNumber: ValueField;
+  invoiceGross: ValueField;
+  invoiceNet: ValueField;
+  invoiceVat: ValueField;
 }
 
 export class MainModel {

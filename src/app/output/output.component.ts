@@ -30,6 +30,11 @@ export class OutputComponent implements OnInit {
   invoiceDateCreate = new HighlightElement();
   invoiceNip = new HighlightElement();
   invoiceDatePayment = new HighlightElement();
+  invoiceZipCode = new HighlightElement();
+  invoiceAccountNumber = new HighlightElement();
+  invoiceGross = new HighlightElement();
+  invoiceNet = new HighlightElement();
+  invoiceVat = new HighlightElement();
 
 
   displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
@@ -113,6 +118,7 @@ export class OutputComponent implements OnInit {
 
     this.appModel = this.mainModel.finalResult;
     this.simpleModel = this.mainModel.finalResultSimple;
+    const pageHeight = this.appModel.invoiceNip.pageHeight !== undefined ? this.appModel.invoiceNip.pageHeight : 0;
 
     let doc = new FinalDoc();
 
@@ -121,6 +127,7 @@ export class OutputComponent implements OnInit {
         console.log('error', error);
       } else {
         doc = result;
+        let pageId = 0;
         for (const p of doc.document.page) {
           for (const b of p.block) {
             if (b.blockType[0] === 'Table') {
@@ -129,8 +136,8 @@ export class OutputComponent implements OnInit {
                   for (const par of c.text[0].par) {
                     let x = new DisplayElement();
                     if (par.line !== undefined && par.line[0].formatting[0]._ !== undefined) {
-                      x.posL = +par.line[0].l[0] / 2;
-                      x.posT = +par.line[0].t[0] / 2 + 100;
+                      x.posL = +par.line[0].l[0] / 2 + 10;
+                      x.posT = (+par.line[0].t[0] / 2 + 100) + pageHeight * pageId;
                       let temp = '';
                       for (let str of par.line[0].formatting[0]._) {
                         temp += str;
@@ -145,8 +152,8 @@ export class OutputComponent implements OnInit {
               for (const par of b.text[0].par) {
                 let x = new DisplayElement();
                 if (par.line !== undefined && par.line[0].formatting[0]._ !== undefined) {
-                  x.posL = +par.line[0].l[0] / 2;
-                  x.posT = +par.line[0].t[0] / 2 + 100;
+                  x.posL = +par.line[0].l[0] / 2 + 10;
+                  x.posT = (+par.line[0].t[0] / 2 + 100) + pageHeight * pageId;
                   let temp = '';
                   for (let str of par.line[0].formatting[0]._) {
                     temp = temp + str;
@@ -157,30 +164,50 @@ export class OutputComponent implements OnInit {
               }
             }
           }
+          pageId += 1;
         }
       }
     });
 
-    this.invoiceNumber.posL = this.appModel.invoiceNumber.lineLeft / 2;
-    this.invoiceNumber.posT = this.appModel.invoiceNumber.lineTop / 2 + 100;
+    this.invoiceNumber.posL = this.appModel.invoiceNumber.lineLeft / 2 + 10 - 2;
+    this.invoiceNumber.posT = (this.appModel.invoiceNumber.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
     this.invoiceNumber.value = this.appModel.invoiceNumber.fieldValue;
     this.invoiceNumber.perc = this.appModel.invoiceNumber.invoiceNumber.probabilityInvoiceNumber.toString();
 
-    this.invoiceDateCreate.posL = this.appModel.invoiceDateCreate.lineLeft / 2;
-    this.invoiceDateCreate.posT = this.appModel.invoiceDateCreate.lineTop / 2 + 100;
+    this.invoiceDateCreate.posL = this.appModel.invoiceDateCreate.lineLeft / 2 + 10 - 2;
+    this.invoiceDateCreate.posT = (this.appModel.invoiceDateCreate.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
     this.invoiceDateCreate.value = this.appModel.invoiceDateCreate.fieldValue;
     this.invoiceDateCreate.perc = this.appModel.invoiceDateCreate.invoiceDateCreate.probabilityInvoiceDateCreate.toString();
 
-    this.invoiceNip.posL = this.appModel.invoiceNip.lineLeft / 2;
-    this.invoiceNip.posT = this.appModel.invoiceNip.lineTop / 2 + 100;
+    this.invoiceNip.posL = this.appModel.invoiceNip.lineLeft / 2 + 10 - 2;
+    this.invoiceNip.posT = (this.appModel.invoiceNip.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
     this.invoiceNip.value = this.appModel.invoiceNip.fieldValue;
     this.invoiceNip.perc = this.appModel.invoiceNip.invoiceNip.probabilityInvoiceNipContractor.toString();
 
-    this.invoiceDatePayment.posL = this.appModel.invoiceDatePayment.lineLeft / 2;
-    this.invoiceDatePayment.posT = this.appModel.invoiceDatePayment.lineTop / 2 + 100;
+    this.invoiceDatePayment.posL = this.appModel.invoiceDatePayment.lineLeft / 2 + 10 - 2;
+    this.invoiceDatePayment.posT = (this.appModel.invoiceDatePayment.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
     this.invoiceDatePayment.value = this.appModel.invoiceDatePayment.fieldValue;
     this.invoiceDatePayment.perc = this.appModel.invoiceDatePayment.invoiceDatePayment.probabilityInvoiceDatePayment.toString();
 
+    this.invoiceZipCode.posL = this.appModel.invoiceZipCode.lineLeft / 2 + 10 - 2;
+    this.invoiceZipCode.posT = (this.appModel.invoiceZipCode.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
+    this.invoiceZipCode.value = this.appModel.invoiceZipCode.fieldValue;
+
+    this.invoiceAccountNumber.posL = this.appModel.invoiceAccountNumber.lineLeft / 2 + 10 - 2;
+    this.invoiceAccountNumber.posT = (this.appModel.invoiceAccountNumber.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
+    this.invoiceAccountNumber.value = this.appModel.invoiceAccountNumber.fieldValue;
+
+    this.invoiceGross.posL = this.appModel.invoiceGross.lineLeft / 2 + 10 - 2;
+    this.invoiceGross.posT = (this.appModel.invoiceGross.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceGross.pageId;
+    this.invoiceGross.value = this.appModel.invoiceGross.fieldValue;
+
+    this.invoiceNet.posL = this.appModel.invoiceNet.lineLeft / 2 + 10 - 2;
+    this.invoiceNet.posT = (this.appModel.invoiceNet.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNet.pageId;
+    this.invoiceNet.value = this.appModel.invoiceNet.fieldValue;
+
+    this.invoiceVat.posL = this.appModel.invoiceVat.lineLeft / 2 + 10 - 2;
+    this.invoiceVat.posT = (this.appModel.invoiceVat.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceVat.pageId;
+    this.invoiceVat.value = this.appModel.invoiceVat.fieldValue;
 
     let highestValueInvoiceNum = 0;
     let highestValueInvoiceDateCreate = 0;

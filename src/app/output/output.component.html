@@ -691,7 +691,7 @@
       <button [style.left.px]="invoiceNumber.posL" [style.top.px]="invoiceNumber.posT" matBadge="1"
               matTooltip="InvoiceNumber - {{invoiceNumber.value}} - {{invoiceNumber.perc}}%"
               matTooltipClass="example-tooltip-red"
-           style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
         <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNumber.value}}</b>
       </button>
 
@@ -715,6 +715,71 @@
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
         <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceDatePayment.value}}</b>
       </button>
+
+      <button [style.left.px]="invoiceZipCode.posL" [style.top.px]="invoiceZipCode.posT" matBadge="5"
+              matTooltip="ZipCode - {{invoiceZipCode.value}}"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceZipCode.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceAccountNumber.posL" [style.top.px]="invoiceAccountNumber.posT" matBadge="6"
+              matTooltip="AccountNumber - {{invoiceAccountNumber.value}}"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceAccountNumber.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceGross.posL" [style.top.px]="invoiceGross.posT" matBadge="7"
+              matTooltip="AccountNumber - {{invoiceGross.value}}"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceGross.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceNet.posL" [style.top.px]="invoiceNet.posT" matBadge="8"
+              matTooltip="AccountNumber - {{invoiceNet.value}}"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNet.value}}</b>
+      </button>
+
+      <button [style.left.px]="invoiceVat.posL" [style.top.px]="invoiceVat.posT" matBadge="9"
+              matTooltip="AccountNumber - {{invoiceVat.value}}"
+              matTooltipClass="example-tooltip-red"
+              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceVat.value}}</b>
+      </button>
+
+      <div class="number-info-display" color="accent">
+        <p>
+          <span matBadge="1" matBadgeOverlap="false" matBadgePosition="before">InvoiceNumber</span>
+        </p>
+        <p>
+          <span matBadge="2" matBadgeOverlap="false"  matBadgePosition="before">DateCreate</span>
+        </p>
+        <p>
+          <span matBadge="3" matBadgeOverlap="false"  matBadgePosition="before">Nip</span>
+        </p>
+        <p>
+          <span matBadge="4" matBadgeOverlap="false"  matBadgePosition="before">DatePayment</span>
+        </p>
+        <p>
+          <span matBadge="5" matBadgeOverlap="false"  matBadgePosition="before">ZipCode</span>
+        </p>
+        <p>
+          <span matBadge="6" matBadgeOverlap="false"  matBadgePosition="before">AccountNumber</span>
+        </p>
+        <p>
+          <span matBadge="7" matBadgeOverlap="false"  matBadgePosition="before">Gross</span>
+        </p>
+        <p>
+          <span matBadge="8" matBadgeOverlap="false"  matBadgePosition="before">Net</span>
+        </p>
+        <p>
+          <span matBadge="9" matBadgeOverlap="false"  matBadgePosition="before">Vat</span>
+        </p>
+      </div>
 
     </div>
   </mat-step>
