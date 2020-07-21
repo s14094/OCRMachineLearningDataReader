@@ -702,6 +702,62 @@
                 matTooltipClass="example-tooltip-red"
                 style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
           <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceNumber}}%</b>
+        </button>
+      </ng-container>
+
+      <ng-container *ngFor="let item of invoiceDateCreateList; let i = index">
+        <button [style.left.px]="item.posL" [style.top.px]="item.posT" matBadge="{{i}}"
+                matBadgePosition="below before"
+                matBadgeColor="accent"
+                matBadgeOverlap="false"
+                *ngIf="viewMode === 2"
+                matTooltip="Total-{{item.probabilityInvoiceDateCreate}}%
+                  AlignWeight-{{item.probInvoiceDateCreateAlignWeight}}%
+                  DateStructureWeight-{{item.probInvoiceDateCreateDateStructureWeight}}%
+                  PositionWeight-{{item.probInvoiceDateCreatePositionWeight}}%
+                  RangeWeight-{{item.probInvoiceDateCreateRangeWeight}}%"
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceDateCreate}}%</b>
+        </button>
+      </ng-container>
+
+      <ng-container *ngFor="let item of invoiceNipList; let i = index">
+        <button [style.left.px]="item.posL" [style.top.px]="item.posT" matBadge="{{i}}"
+                matBadgePosition="below before"
+                matBadgeColor="accent"
+                matBadgeOverlap="false"
+                *ngIf="viewMode === 3"
+                matTooltip="Total-{{item.probabilityInvoiceNipContractor}}%
+                  AlignWeight-{{item.probInvoiceNipContractorAlignWeight}}%
+                  BlockStructureWeight-{{item.probInvoiceNipContractorBlockStructureWeight}}%
+                  PositionWeight-{{item.probInvoiceNipContractorPositionWeight}}%
+                  RangeKeyWeight-{{item.probInvoiceNipContractorRangeKeyWeight}}%
+                  RangeNipWeight-{{item.probInvoiceNipContractorRangeNipWeight}}%
+                  StructureWeight-{{item.probInvoiceNipContractorStructureWeight}}% "
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceNipContractor}}%</b>
+        </button>
+      </ng-container>
+
+      <ng-container *ngFor="let item of invoiceDatePaymentList; let i = index">
+        <button [style.left.px]="item.posL" [style.top.px]="item.posT" matBadge="{{i}}"
+                matBadgePosition="below before"
+                matBadgeColor="accent"
+                matBadgeOverlap="false"
+                *ngIf="viewMode === 4"
+                matTooltip="Total-{{item.probabilityInvoiceDatePayment}}%
+                  AlignWeight-{{item.probInvoiceDatePaymentAlignWeight}}%
+                  DateStructureWeight-{{item.probInvoiceDatePaymentDateStructureWeight}}%
+                  RangeWeight-{{item.probInvoiceDatePaymentRangeWeight}}%"
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceDatePayment}}%</b>
         </button>
       </ng-container>
 

@@ -327,11 +327,6 @@ export class OutputComponent implements OnInit {
       this.invoiceDatePaymentList.push(newInvoiceDatePayment);
     }
 
-    console.log(this.invoiceNumberList);
-    console.log(this.invoiceDateCreateList);
-    console.log(this.invoiceNipList);
-    console.log(this.invoiceDatePaymentList);
-
     highestValueInvoiceNum = 0;
     highestValueInvoiceDateCreate = 0;
     highestValueInvoiceNipContractor = 0;
