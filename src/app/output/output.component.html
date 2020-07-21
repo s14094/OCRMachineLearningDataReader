@@ -687,8 +687,26 @@
         <b style="position: sticky;">{{item.value}}</b>
       </div>
 
+      <ng-container *ngFor="let item of invoiceNumberList; let i = index">
+        <button [style.left.px]="item.posL" [style.top.px]="item.posT" matBadge="{{i}}"
+                matBadgePosition="below before"
+                matBadgeColor="accent"
+                matBadgeOverlap="false"
+                *ngIf="viewMode === 1"
+                matTooltip="Total-{{item.probabilityInvoiceNumber}}%
+                  BlockStructureWeight-{{item.probInvoiceBlockStructureWeight}}%
+                  LineStructureWeight-{{item.probInvoiceLineStructureWeight}}%
+                  NumKeyDistanceWeight-{{item.probInvoiceNumKeyDistanceWeight}}%
+                  NumPositionWeight-{{item.probInvoiceNumPositionWeight}}%
+                  NumStructureWeight-{{item.probInvoiceNumStructureWeight}}% "
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
+        </button>
+      </ng-container>
 
       <button [style.left.px]="invoiceNumber.posL" [style.top.px]="invoiceNumber.posT" matBadge="1"
+              *ngIf="viewMode === 0"
               matTooltip="InvoiceNumber - {{invoiceNumber.value}} - {{invoiceNumber.perc}}%"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
@@ -696,6 +714,7 @@
       </button>
 
       <button [style.left.px]="invoiceDateCreate.posL" [style.top.px]="invoiceDateCreate.posT" matBadge="2"
+              *ngIf="viewMode === 0"
               matTooltip="DateCreate - {{invoiceDateCreate.value}} - {{invoiceDateCreate.perc}}%"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
@@ -703,6 +722,7 @@
       </button>
 
       <button [style.left.px]="invoiceNip.posL" [style.top.px]="invoiceNip.posT" matBadge="3"
+              *ngIf="viewMode === 0"
               matTooltip="Nip - {{invoiceNip.value}} - {{invoiceNip.perc}}%"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
@@ -710,6 +730,7 @@
       </button>
 
       <button [style.left.px]="invoiceDatePayment.posL" [style.top.px]="invoiceDatePayment.posT" matBadge="4"
+              *ngIf="viewMode === 0"
               matTooltip="DatePayment - {{invoiceDatePayment.value}} - {{invoiceDatePayment.perc}}%"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
@@ -717,6 +738,7 @@
       </button>
 
       <button [style.left.px]="invoiceZipCode.posL" [style.top.px]="invoiceZipCode.posT" matBadge="5"
+              *ngIf="viewMode === 0"
               matTooltip="ZipCode - {{invoiceZipCode.value}}"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
@@ -724,6 +746,7 @@
       </button>
 
       <button [style.left.px]="invoiceAccountNumber.posL" [style.top.px]="invoiceAccountNumber.posT" matBadge="6"
+              *ngIf="viewMode === 0"
               matTooltip="AccountNumber - {{invoiceAccountNumber.value}}"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
@@ -731,53 +754,77 @@
       </button>
 
       <button [style.left.px]="invoiceGross.posL" [style.top.px]="invoiceGross.posT" matBadge="7"
-              matTooltip="AccountNumber - {{invoiceGross.value}}"
+              *ngIf="viewMode === 0"
+              matTooltip="Gross - {{invoiceGross.value}}"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
         <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceGross.value}}</b>
       </button>
 
       <button [style.left.px]="invoiceNet.posL" [style.top.px]="invoiceNet.posT" matBadge="8"
-              matTooltip="AccountNumber - {{invoiceNet.value}}"
+              *ngIf="viewMode === 0"
+              matTooltip="Net - {{invoiceNet.value}}"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
         <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNet.value}}</b>
       </button>
 
       <button [style.left.px]="invoiceVat.posL" [style.top.px]="invoiceVat.posT" matBadge="9"
-              matTooltip="AccountNumber - {{invoiceVat.value}}"
+              *ngIf="viewMode === 0"
+              matTooltip="Vat - {{invoiceVat.value}}"
               matTooltipClass="example-tooltip-red"
               style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
         <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceVat.value}}</b>
       </button>
 
       <div class="number-info-display" color="accent">
-        <p>
-          <span matBadge="1" matBadgeOverlap="false" matBadgePosition="before">InvoiceNumber</span>
+        <p style="margin: 0;">
+          <span matBadge="1" matBadgeOverlap="false" matBadgePosition="before">
+            <button mat-stroked-button (click)="changeViewMode(1)">
+            <span style="color: -webkit-link; text-decoration: underline;">InvoiceNumber</span>
+          </button>
+          </span>
+        </p>
+        <p style="margin: 0;">
+          <span matBadge="2" matBadgeOverlap="false" matBadgePosition="before">
+            <button mat-stroked-button (click)="changeViewMode(2)">
+            <span style="color: -webkit-link; text-decoration: underline;">DateCreate</span>
+          </button>
+          </span>
+        </p>
+        <p style="margin: 0;">
+          <span matBadge="3" matBadgeOverlap="false" matBadgePosition="before">
+            <button mat-stroked-button (click)="changeViewMode(3)">
+             <span style="color: -webkit-link; text-decoration: underline;">Nip</span>
+          </button>
+          </span>
+        </p>
+        <p style="margin: 0;">
+          <span matBadge="4" matBadgeOverlap="false" matBadgePosition="before">
+            <button mat-stroked-button (click)="changeViewMode(4)">
+              <span style="color: -webkit-link; text-decoration: underline;">DatePayment</span>
+          </button>
+          </span>
         </p>
         <p>
-          <span matBadge="2" matBadgeOverlap="false"  matBadgePosition="before">DateCreate</span>
+          <span matBadge="5" matBadgeOverlap="false" matBadgePosition="before">ZipCode</span>
         </p>
         <p>
-          <span matBadge="3" matBadgeOverlap="false"  matBadgePosition="before">Nip</span>
+          <span matBadge="6" matBadgeOverlap="false" matBadgePosition="before">AccountNumber</span>
         </p>
         <p>
-          <span matBadge="4" matBadgeOverlap="false"  matBadgePosition="before">DatePayment</span>
+          <span matBadge="7" matBadgeOverlap="false" matBadgePosition="before">Gross</span>
         </p>
         <p>
-          <span matBadge="5" matBadgeOverlap="false"  matBadgePosition="before">ZipCode</span>
+          <span matBadge="8" matBadgeOverlap="false" matBadgePosition="before">Net</span>
         </p>
         <p>
-          <span matBadge="6" matBadgeOverlap="false"  matBadgePosition="before">AccountNumber</span>
+          <span matBadge="9" matBadgeOverlap="false" matBadgePosition="before">Vat</span>
         </p>
-        <p>
-          <span matBadge="7" matBadgeOverlap="false"  matBadgePosition="before">Gross</span>
-        </p>
-        <p>
-          <span matBadge="8" matBadgeOverlap="false"  matBadgePosition="before">Net</span>
-        </p>
-        <p>
-          <span matBadge="9" matBadgeOverlap="false"  matBadgePosition="before">Vat</span>
+        <p style="margin-top: 0;">
+          <button *ngIf="viewMode !== 0" mat-stroked-button (click)="resetViewMode()">
+            <span style="text-decoration: underline; color: red;">Wszystkie</span>
+          </button>
         </p>
       </div>
 

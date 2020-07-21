@@ -1,6 +1,18 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {AppModel, DisplayElement, FinalDoc, HighlightElement, MainModel, SimpleModel} from './app.model';
+import {
+  AppModel,
+  DisplayElement,
+  FinalDoc,
+  HighlightElement,
+  InvoiceDateCreate,
+  InvoiceDatePayment,
+  InvoiceNip,
+  InvoiceNumber,
+  MainModel,
+  SimpleModel,
+  ValueField
+} from './app.model';
 import {AppService} from '../app.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {XmlToJsonService} from '../XmlToJsonService.service';
@@ -35,6 +47,12 @@ export class OutputComponent implements OnInit {
   invoiceGross = new HighlightElement();
   invoiceNet = new HighlightElement();
   invoiceVat = new HighlightElement();
+  viewMode = 0;
+
+  invoiceNumberList: InvoiceNumber[] = [];
+  invoiceDateCreateList: InvoiceDateCreate[] = [];
+  invoiceNipList: InvoiceNip[] = [];
+  invoiceDatePaymentList: InvoiceDatePayment[] = [];
 
 
   displayedColumns: string[] = ['fieldValue', 'parId', 'pageId', 'blockId', 'lang', 'lineBaseline', 'lineLeft', 'lineRight', 'lineBottom',
@@ -80,6 +98,14 @@ export class OutputComponent implements OnInit {
     public dialog: MatDialog,
     private xmlToJsonService: XmlToJsonService
   ) {
+  }
+
+  resetViewMode() {
+    this.viewMode = 0;
+  }
+
+  changeViewMode(id) {
+    this.viewMode = id;
   }
 
   toggleCol(event) {
@@ -209,11 +235,108 @@ export class OutputComponent implements OnInit {
     this.invoiceVat.posT = (this.appModel.invoiceVat.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceVat.pageId;
     this.invoiceVat.value = this.appModel.invoiceVat.fieldValue;
 
+
     let highestValueInvoiceNum = 0;
     let highestValueInvoiceDateCreate = 0;
     let highestValueInvoiceNipContractor = 0;
     let highestValueInvoiceDatePayment = 0;
     let highestValueInvoiceContractorTown = 0;
+    let lastHighestValueInvoiceNum = 0;
+    let lastHighestValueInvoiceDateCreate = 0;
+    let lastHighestValueInvoiceNipContractor = 0;
+    let lastHighestValueInvoiceDatePayment = 0;
+    let tempModelInvoiceNumber = new ValueField();
+    let tempModelInvoiceDateCreate = new ValueField();
+    let tempModelInvoiceNip = new ValueField();
+    let tempModelInvoiceDatePayment = new ValueField();
+
+    for (let i = 0; i < 5; i++) {
+      for (const model of this.appModel.valueFieldList) {
+        if (i === 0) {
+          if (model.invoiceNumber.probabilityInvoiceNumber > highestValueInvoiceNum) {
+            tempModelInvoiceNumber = model;
+            highestValueInvoiceNum = model.invoiceNumber.probabilityInvoiceNumber;
+          }
+          if (model.invoiceDateCreate.probabilityInvoiceDateCreate > highestValueInvoiceDateCreate) {
+            tempModelInvoiceDateCreate = model;
+            highestValueInvoiceDateCreate = model.invoiceDateCreate.probabilityInvoiceDateCreate;
+          }
+          if (model.invoiceNip.probabilityInvoiceNipContractor > highestValueInvoiceNipContractor) {
+            tempModelInvoiceNip = model;
+            highestValueInvoiceNipContractor = model.invoiceNip.probabilityInvoiceNipContractor;
+          }
+          if (model.invoiceDatePayment.probabilityInvoiceDatePayment > highestValueInvoiceDatePayment) {
+            tempModelInvoiceDatePayment = model;
+            highestValueInvoiceDatePayment = model.invoiceDatePayment.probabilityInvoiceDatePayment;
+          }
+        } else {
+          if (model.invoiceNumber.probabilityInvoiceNumber > highestValueInvoiceNum &&
+            model.invoiceNumber.probabilityInvoiceNumber < lastHighestValueInvoiceNum) {
+            tempModelInvoiceNumber = model;
+            highestValueInvoiceNum = model.invoiceNumber.probabilityInvoiceNumber;
+          }
+          if (model.invoiceDateCreate.probabilityInvoiceDateCreate > highestValueInvoiceDateCreate &&
+            model.invoiceDateCreate.probabilityInvoiceDateCreate < lastHighestValueInvoiceDateCreate) {
+            tempModelInvoiceDateCreate = model;
+            highestValueInvoiceDateCreate = model.invoiceDateCreate.probabilityInvoiceDateCreate;
+          }
+          if (model.invoiceNip.probabilityInvoiceNipContractor > highestValueInvoiceNipContractor &&
+            model.invoiceNip.probabilityInvoiceNipContractor < lastHighestValueInvoiceNipContractor) {
+            tempModelInvoiceNip = model;
+            highestValueInvoiceNipContractor = model.invoiceNip.probabilityInvoiceNipContractor;
+          }
+          if (model.invoiceDatePayment.probabilityInvoiceDatePayment > highestValueInvoiceDatePayment &&
+            model.invoiceDatePayment.probabilityInvoiceDatePayment < lastHighestValueInvoiceDatePayment) {
+            tempModelInvoiceDatePayment = model;
+            highestValueInvoiceDatePayment = model.invoiceDatePayment.probabilityInvoiceDatePayment;
+          }
+
+        }
+      }
+      lastHighestValueInvoiceNum = highestValueInvoiceNum;
+      lastHighestValueInvoiceDateCreate = highestValueInvoiceDateCreate;
+      lastHighestValueInvoiceNipContractor = highestValueInvoiceNipContractor;
+      lastHighestValueInvoiceDatePayment = highestValueInvoiceDatePayment;
+      highestValueInvoiceNum = 0;
+      highestValueInvoiceDateCreate = 0;
+      highestValueInvoiceNipContractor = 0;
+      highestValueInvoiceDatePayment = 0;
+      let newInvoiceNumber: InvoiceNumber = tempModelInvoiceNumber.invoiceNumber;
+      newInvoiceNumber.posL = tempModelInvoiceNumber.lineLeft / 2 + 10 - 2;
+      newInvoiceNumber.posT = (tempModelInvoiceNumber.lineTop / 2 + 98) + pageHeight * tempModelInvoiceNumber.pageId;
+      newInvoiceNumber.value = tempModelInvoiceNumber.fieldValue;
+
+      let newInvoiceDateCreate: InvoiceDateCreate = tempModelInvoiceDateCreate.invoiceDateCreate;
+      newInvoiceDateCreate.posL = tempModelInvoiceDateCreate.lineLeft / 2 + 10 - 2;
+      newInvoiceDateCreate.posT = (tempModelInvoiceDateCreate.lineTop / 2 + 98) + pageHeight * tempModelInvoiceDateCreate.pageId;
+      newInvoiceDateCreate.value = tempModelInvoiceDateCreate.fieldValue;
+
+      let newInvoiceNip: InvoiceNip = tempModelInvoiceNip.invoiceNip;
+      newInvoiceNip.posL = tempModelInvoiceNip.lineLeft / 2 + 10 - 2;
+      newInvoiceNip.posT = (tempModelInvoiceNip.lineTop / 2 + 98) + pageHeight * tempModelInvoiceNip.pageId;
+      newInvoiceNip.value = tempModelInvoiceNip.fieldValue;
+
+      let newInvoiceDatePayment: InvoiceDatePayment = tempModelInvoiceDatePayment.invoiceDatePayment;
+      newInvoiceDatePayment.posL = tempModelInvoiceDatePayment.lineLeft / 2 + 10 - 2;
+      newInvoiceDatePayment.posT = (tempModelInvoiceDatePayment.lineTop / 2 + 98) + pageHeight * tempModelInvoiceDatePayment.pageId;
+      newInvoiceDatePayment.value = tempModelInvoiceDatePayment.fieldValue;
+
+      this.invoiceNumberList.push(newInvoiceNumber);
+      this.invoiceDateCreateList.push(newInvoiceDateCreate);
+      this.invoiceNipList.push(newInvoiceNip);
+      this.invoiceDatePaymentList.push(newInvoiceDatePayment);
+    }
+
+    console.log(this.invoiceNumberList);
+    console.log(this.invoiceDateCreateList);
+    console.log(this.invoiceNipList);
+    console.log(this.invoiceDatePaymentList);
+
+    highestValueInvoiceNum = 0;
+    highestValueInvoiceDateCreate = 0;
+    highestValueInvoiceNipContractor = 0;
+    highestValueInvoiceDatePayment = 0;
+    highestValueInvoiceContractorTown = 0;
     for (const model of this.appModel.valueFieldList) {
       if (model.invoiceNumber.probabilityInvoiceNumber > highestValueInvoiceNum) {
         highestValueInvoiceNum = model.invoiceNumber.probabilityInvoiceNumber;

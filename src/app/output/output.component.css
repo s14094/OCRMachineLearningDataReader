@@ -97,6 +97,7 @@ th.table-header:hover {
 ::ng-deep .example-tooltip-red {
   background: #b71c1c;
   font-size: 16px;
+  white-space: pre-line;
 }
 
 .number-info-display{

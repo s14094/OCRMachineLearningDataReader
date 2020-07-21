@@ -157,7 +157,7 @@ export class ValueField {
   invoiceContractorName: InvoiceContractorName;
 }
 
-export class InvoiceNumber {
+export class InvoiceNumber extends HighlightElement {
   probabilityInvoiceNumber: number;
   probabilityInvoiceNumberColor = 0;
   probInvoiceNumPositionWeight: number;
@@ -167,7 +167,7 @@ export class InvoiceNumber {
   probInvoiceBlockStructureWeight: number;
 }
 
-export class InvoiceDateCreate {
+export class InvoiceDateCreate extends HighlightElement {
   probabilityInvoiceDateCreate: number;
   probabilityInvoiceDateCreateColor = 0;
   probInvoiceDateCreatePositionWeight: number;
@@ -176,7 +176,7 @@ export class InvoiceDateCreate {
   probInvoiceDateCreateDateStructureWeight: number;
 }
 
-export class InvoiceNip {
+export class InvoiceNip extends HighlightElement {
   probabilityInvoiceNipContractor: number;
   probabilityInvoiceNipContractorColor = 0;
   probInvoiceNipContractorPositionWeight: number;
@@ -188,7 +188,7 @@ export class InvoiceNip {
 }
 
 
-export class InvoiceDatePayment {
+export class InvoiceDatePayment extends HighlightElement {
   probabilityInvoiceDatePayment: number;
   probabilityInvoiceDatePaymentColor = 0;
   probInvoiceDatePaymentRangeWeight: number;
