@@ -702,7 +702,10 @@
                 matTooltipClass="example-tooltip-red"
                 style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
           <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
-          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceNumber}}%</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900;
+           -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">
+            {{item.probabilityInvoiceNumber}}%
+          </b>
         </button>
       </ng-container>
 
@@ -720,7 +723,10 @@
                 matTooltipClass="example-tooltip-red"
                 style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
           <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
-          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceDateCreate}}%</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900;
+             -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">
+            {{item.probabilityInvoiceDateCreate}}%
+          </b>
         </button>
       </ng-container>
 
@@ -740,7 +746,10 @@
                 matTooltipClass="example-tooltip-red"
                 style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
           <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
-          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceNipContractor}}%</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900;
+           -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">
+            {{item.probabilityInvoiceNipContractor}}%
+          </b>
         </button>
       </ng-container>
 
@@ -757,7 +766,10 @@
                 matTooltipClass="example-tooltip-red"
                 style="position: absolute; border: solid 2px orange; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
           <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{item.value}}</b>
-          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900; -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">{{item.probabilityInvoiceDatePayment}}%</b>
+          <b style="padding-left: 10px; position: inherit; font-family: fantasy; font-weight: 900;
+           -webkit-text-stroke: 1px black; font-size: 16px; color: orange;">
+            {{item.probabilityInvoiceDatePayment}}%
+          </b>
         </button>
       </ng-container>
 
@@ -809,29 +821,34 @@
         <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceAccountNumber.value}}</b>
       </button>
 
-      <button [style.left.px]="invoiceGross.posL" [style.top.px]="invoiceGross.posT" matBadge="7"
-              *ngIf="viewMode === 0"
-              matTooltip="Gross - {{invoiceGross.value}}"
-              matTooltipClass="example-tooltip-red"
-              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
-        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceGross.value}}</b>
-      </button>
+      <ng-container *ngIf="invoiceGross.posL != undefined">
+        <button [style.left.px]="invoiceGross.posL" [style.top.px]="invoiceGross.posT" matBadge="7"
+                *ngIf="viewMode === 0"
+                matTooltip="Gross - {{invoiceGross.value}}"
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceGross.value}}</b>
+        </button>
+      </ng-container>
 
-      <button [style.left.px]="invoiceNet.posL" [style.top.px]="invoiceNet.posT" matBadge="8"
-              *ngIf="viewMode === 0"
-              matTooltip="Net - {{invoiceNet.value}}"
-              matTooltipClass="example-tooltip-red"
-              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
-        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNet.value}}</b>
-      </button>
-
-      <button [style.left.px]="invoiceVat.posL" [style.top.px]="invoiceVat.posT" matBadge="9"
-              *ngIf="viewMode === 0"
-              matTooltip="Vat - {{invoiceVat.value}}"
-              matTooltipClass="example-tooltip-red"
-              style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
-        <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceVat.value}}</b>
-      </button>
+      <ng-container *ngIf="invoiceNet.posL !== undefined">
+        <button [style.left.px]="invoiceNet.posL" [style.top.px]="invoiceNet.posT" matBadge="8"
+                *ngIf="viewMode === 0"
+                matTooltip="Net - {{invoiceNet.value}}"
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceNet.value}}</b>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="invoiceVat.posL !== undefined">
+        <button [style.left.px]="invoiceVat.posL" [style.top.px]="invoiceVat.posT" matBadge="9"
+                *ngIf="viewMode === 0"
+                matTooltip="Vat - {{invoiceVat.value}}"
+                matTooltipClass="example-tooltip-red"
+                style="position: absolute; border: solid 2px red; background-color: Transparent; background-repeat: no-repeat; cursor: pointer; font-size: 13px;">
+          <b style="position: sticky; color: rgba(0, 0, 0, 0)">{{invoiceVat.value}}</b>
+        </button>
+      </ng-container>
 
       <div class="number-info-display" color="accent">
         <p style="margin: 0;">

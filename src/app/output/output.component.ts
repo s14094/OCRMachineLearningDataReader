@@ -223,18 +223,21 @@ export class OutputComponent implements OnInit {
     this.invoiceAccountNumber.posT = (this.appModel.invoiceAccountNumber.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNumber.pageId;
     this.invoiceAccountNumber.value = this.appModel.invoiceAccountNumber.fieldValue;
 
-    this.invoiceGross.posL = this.appModel.invoiceGross.lineLeft / 2 + 10 - 2;
-    this.invoiceGross.posT = (this.appModel.invoiceGross.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceGross.pageId;
-    this.invoiceGross.value = this.appModel.invoiceGross.fieldValue;
-
-    this.invoiceNet.posL = this.appModel.invoiceNet.lineLeft / 2 + 10 - 2;
-    this.invoiceNet.posT = (this.appModel.invoiceNet.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNet.pageId;
-    this.invoiceNet.value = this.appModel.invoiceNet.fieldValue;
-
-    this.invoiceVat.posL = this.appModel.invoiceVat.lineLeft / 2 + 10 - 2;
-    this.invoiceVat.posT = (this.appModel.invoiceVat.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceVat.pageId;
-    this.invoiceVat.value = this.appModel.invoiceVat.fieldValue;
-
+    if (this.appModel.invoiceGross !== null) {
+      this.invoiceGross.posL = this.appModel.invoiceGross.lineLeft / 2 + 10 - 2;
+      this.invoiceGross.posT = (this.appModel.invoiceGross.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceGross.pageId;
+      this.invoiceGross.value = this.appModel.invoiceGross.fieldValue;
+    }
+    if (this.appModel.invoiceNet !== null) {
+      this.invoiceNet.posL = this.appModel.invoiceNet.lineLeft / 2 + 10 - 2;
+      this.invoiceNet.posT = (this.appModel.invoiceNet.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceNet.pageId;
+      this.invoiceNet.value = this.appModel.invoiceNet.fieldValue;
+    }
+    if (this.appModel.invoiceVat !== null) {
+      this.invoiceVat.posL = this.appModel.invoiceVat.lineLeft / 2 + 10 - 2;
+      this.invoiceVat.posT = (this.appModel.invoiceVat.lineTop / 2 + 98) + pageHeight * this.appModel.invoiceVat.pageId;
+      this.invoiceVat.value = this.appModel.invoiceVat.fieldValue;
+    }
 
     let highestValueInvoiceNum = 0;
     let highestValueInvoiceDateCreate = 0;
